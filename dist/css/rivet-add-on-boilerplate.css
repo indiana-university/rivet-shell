@@ -1,0 +1,11 @@
+/*!
+ * rivet-add-on-boilerplate - @version 0.1.0-alpha
+ * (c) 2018, The Trustees of Indiana University | MIT License
+ * https://github.com/indiana-university/rivet-add-on-boilerplate
+ */
+
+/*! Rivet - @version v1.0.0 */
+.rvt-add-on-boilerplate {
+  font-size: 1.625rem;
+  display: block;
+}
