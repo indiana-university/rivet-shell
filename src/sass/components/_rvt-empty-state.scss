@@ -1,0 +1,34 @@
+.rvt-empty {
+  height: 400px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  border-radius: .25rem;
+  border: 2px dashed #eee;
+
+  &__container {
+    max-width: 25rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 1.8125rem;
+  }
+
+  &__description {
+    color: #666;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    align-items: center;
+
+    > *:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

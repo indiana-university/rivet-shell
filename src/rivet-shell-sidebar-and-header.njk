@@ -1,0 +1,28 @@
+---
+title: Rivet shell sidebar
+layout: layouts/base-empty.njk
+---
+{% from "rivet-shell-macros.njk" import emptyState %}
+{% from "rivet-shell-macros.njk" import pageHeader %}
+{% set
+  emptyOptions = {
+    title: 'Start here...',
+    description: 'Put description text here that helps people understand how to get started using your app.'
+  }
+%}
+
+{% include "rivet-header.njk" %}
+<main>
+  <div class="rvt-shell-wrapper" id="main-content">
+    <div class="rvt-shell-sidebar">
+    </div>
+    <div class="rvt-shell-stage">
+      {{ pageHeader('Third level page', 'padded', 'border') }}
+      <div class="rvt-p-all-md">
+        {{ emptyState(emptyOptions.title, emptyOptions.description) }}
+      </div>
+    </div>
+  </div>
+</main>
+{% include "rivet-footer.njk" %}
+<script src="https://assets.uits.iu.edu/javascript/rivet/1.0.0/rivet.min.js"></script>

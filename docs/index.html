@@ -3,12 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My new component</title>
+  <title>Rivet shell</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://assets.uits.iu.edu/css/rivet/1.0.0/rivet.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
-  <link rel="stylesheet" href="./css/rivet-add-on-boilerplate.css">
+  <link rel="stylesheet" href="./css/rivet-shell.css">
   <style>
+  .rvt-preview-wrapper {
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
+    box-shadow: 0 2px 14px 3px rgba(0, 0, 0, .08);
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+
+  .rvt-preview-wrapper iframe {
+    width: 100%;
+    min-height: 600px;
+    border: none;
+    margin: 0;
+    display: block;
+  }
+
+  @media screen and (min-width: 1100px) {
+    .rvt-preview-wrapper {
+      width: 150%;
+      max-width: 150%;
+      margin-right: -25%;
+      margin-bottom: 4rem;
+      margin-left: -25%;
+    }
+  }
+
+  .rvt-container--typeset {
+    max-width: 768px;
+  }
+
   .rvt-typeset h1 {
     font-size: 2.5rem;
     line-height: 1.1;
@@ -57,31 +87,67 @@
 </style>
 </head>
 <body>
-  <div class="rvt-container rvt-container--center rvt-container--sophomore rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
-    <h1>My new component</h1>
-    <p class="rvt-m-top-xxs rvt-m-bottom-xxl rvt-ts-20">This is a brief description of what my component does</p>
-    <h2>Getting started</h2>
-<p>Start writing your documentation here...</p>
-<h2>Add-on demo</h2>
-<div class="rvt-m-top-lg">
-  <button class="rvt-button" id="my-button">Click me</button>
+  <div class="rvt-container rvt-container--center rvt-container--typeset rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
+    <h1>Rivet shell</h1>
+    <p class="rvt-m-top-xxs rvt-m-bottom-xxl rvt-ts-20">A configurable set of layout components for applications build using Rivet</p>
+    <h2>Shell base</h2>
+<p>The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The <em>stage</em> area will fill up the remaining vertical space and push the footer to the bottom of the browser window.</p>
+<div class="rvt-m-top-xxl">
+  <label for="main-switcher">Select a shell configuration</label>
+  <select data-shell-switcher="base" id="main-switcher">
+    <option value="rivet-shell-base">Shell base</option>
+    <option value="rivet-shell-page-header-only">Shell w/ page header</option>
+    <option value="rivet-shell-sidebar">Shell sidebar</option>
+    <option value="rivet-shell-sidebar-and-header">Shell w/ sidebar and header</option>
+    <option value="rivet-shell-right-sidebar-header">Shell w/ right-hand sidebar and full-width header</option>
+  </select>
 </div>
-<pre><code class="language-javascript">const gatherInput = event =&gt; {
-  let button = event.target.closest('#my-button');
-
-  if (!button) return;
-
-  let message = prompt('What would you like me to say?');
-  alert(message);
-}
+<div class="rvt-preview-wrapper">
+  <iframe src="./rivet-shell-base" id="base"></iframe>
+</div>
+<h2>Shell with page header</h2>
+<p>The shell also includes a pre-configured page-level header. The shell page header has a space for a page title, back/breadcrumb navigation, and an <em>actions</em> area where you can use other Rivet controls like buttons and form inputs.</p>
+<p><a href="./rivet-shell-page-header-only">Shell with page header demo</a></p>
+<h2>Shell sidebar</h2>
+<p>To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.</p>
+<pre><code class="language-html">&lt;div class=&quot;rvt-shell-wrapper&quot;&gt;
+  &lt;div class=&quot;rvt-shell-sidebar&quot;&gt;
+    &lt;!-- Sidebar content --&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell-stage rvt-p-all-md&quot;&gt;
+    &lt;!-- Main content &quot;Stage&quot; --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
+<p><a href="./rivet-shell-sidebar">Shell sidebar demo</a></p>
 
   </div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
   <script src="./js/rivet-add-on-boilerplate.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
-    MyComponent.init();
   </script>
+  <script>
+function handleChange(event) {
+  // Get the element that changed
+  const switcher =
+    event.target.closest('[data-shell-switcher]');
+
+  // If it wasnt the switcher, bail.
+  if (!switcher) return;
+
+  // Find the corresponding iframe
+  const previewIframe =
+    document.getElementById(
+      switcher.getAttribute('data-shell-switcher')
+    );
+
+  // Update the iframe URL.
+  previewIframe.setAttribute('src', './' + switcher.value);
+}
+
+// Listen for the change on the document
+document.addEventListener('change', handleChange, false);
+</script>
 </body>
 </html>

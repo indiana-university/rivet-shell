@@ -1,0 +1,60 @@
+.rvt-page-header {
+  /**
+   * Do this so visually change the source order. This way screen readers will
+   * announce the title before the nav.
+   */
+  &__title-block {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: -1px;
+    // text-transform: uppercase;
+    // font-size: .825rem;
+    // letter-spacing: .04rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    line-height: 1.1;
+    font-size: 1.625rem;
+  }
+
+  &__actions {
+    margin-top: 1rem;
+  }
+
+  &--border {
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  &--padded {
+    padding: 1.5rem;
+  }
+}
+
+
+@media screen and (min-width: 740px) {
+  .rvt-page-header {
+    display: flex;
+    align-items: center;
+
+    &__actions {
+      margin-left: auto;
+      margin-top: 0;
+    }
+
+    &__title {
+      line-height: 1.1;
+    }
+  }
+}

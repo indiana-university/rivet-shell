@@ -1,0 +1,22 @@
+<script>
+function handleChange(event) {
+  // Get the element that changed
+  const switcher =
+    event.target.closest('[data-shell-switcher]');
+
+  // If it wasnt the switcher, bail.
+  if (!switcher) return;
+
+  // Find the corresponding iframe
+  const previewIframe =
+    document.getElementById(
+      switcher.getAttribute('data-shell-switcher')
+    );
+
+  // Update the iframe URL.
+  previewIframe.setAttribute('src', './' + switcher.value);
+}
+
+// Listen for the change on the document
+document.addEventListener('change', handleChange, false);
+</script>

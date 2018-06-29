@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://assets.uits.iu.edu/css/rivet/1.0.0/rivet.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
-  <link rel="stylesheet" href="./css/rivet-add-on-boilerplate.css">
+  <link rel="stylesheet" href="./css/rivet-shell.css">
   {% include "demo-styles.njk" %}
 </head>
 <body>
-  <div class="rvt-container rvt-container--center rvt-container--sophomore rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
+  <div class="rvt-container rvt-container--center rvt-container--typeset rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
     <h1>{{ title }}</h1>
     <p class="rvt-m-top-xxs rvt-m-bottom-xxl rvt-ts-20">{{ description }}</p>
     {{ layoutContent | safe }}
@@ -20,7 +20,7 @@
   <script src="./js/rivet-add-on-boilerplate.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
-    MyComponent.init();
   </script>
+  {% include "rivet-switcher-script.njk" %}
 </body>
 </html>
