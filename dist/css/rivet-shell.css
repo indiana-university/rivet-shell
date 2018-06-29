@@ -32,7 +32,7 @@
   text-decoration: none;
   margin-left: -1px;
   line-height: 1;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .rvt-page-header__back-link:hover {
@@ -75,8 +75,8 @@
 }
 
 .rvt-empty {
-  height: 400px;
-  min-height: 400px;
+  height: 25rem;
+  min-height: 25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,8 +87,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #f7f7f7;
-  border-radius: .25rem;
-  border: 2px dashed #eee;
+  border-radius: 0.25rem;
+  border: 0.125rem dashed #eeeeee;
 }
 
 .rvt-empty__container {
@@ -101,7 +101,7 @@
 }
 
 .rvt-empty__description {
-  color: #666;
+  color: #666666;
 }
 
 .rvt-empty__actions {
@@ -186,9 +186,9 @@ main {
             flex-grow: 0;
     -ms-flex-negative: 0;
         flex-shrink: 0;
-    -ms-flex-preferred-size: 280px;
-        flex-basis: 280px;
-    width: 280px;
+    -ms-flex-preferred-size: 17.5rem;
+        flex-basis: 17.5rem;
+    width: 17.5rem;
     border-right: 1px solid #eaeaea;
     border-bottom: none;
     display: block;
