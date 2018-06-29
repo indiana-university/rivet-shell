@@ -193,7 +193,7 @@ gulp.task('css:release', function(done) {
 });
 
 // Builds the "dist" folder with compiled and minified CSS & JS
-gulp.task('release', ['js:release', 'css:release']);
+gulp.task('release', ['css:release']);
 
 // Groups up the watch tasks
 gulp.task('watch', ['eleventy:watch', 'sass:watch', 'js:watch']);

@@ -1,0 +1,197 @@
+/*!
+ * rivet-shell - @version 0.1.0-alpha
+ * (c) 2018, The Trustees of Indiana University | MIT License
+ * https://github.com/indiana-university/rivet-shell
+ */
+
+/*! Rivet - @version v1.0.0 */
+.rvt-page-header {
+  /**
+   * Do this so visually change the source order. This way screen readers will
+   * announce the title before the nav.
+   */
+}
+
+.rvt-page-header__title-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.rvt-page-header__back-link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  margin-left: -1px;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+
+.rvt-page-header__back-link:hover {
+  text-decoration: underline;
+}
+
+.rvt-page-header__title {
+  line-height: 1.1;
+  font-size: 1.625rem;
+}
+
+.rvt-page-header__actions {
+  margin-top: 1rem;
+}
+
+.rvt-page-header--border {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.rvt-page-header--padded {
+  padding: 1.5rem;
+}
+
+@media screen and (min-width: 740px) {
+  .rvt-page-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .rvt-page-header__actions {
+    margin-left: auto;
+    margin-top: 0;
+  }
+  .rvt-page-header__title {
+    line-height: 1.1;
+  }
+}
+
+.rvt-empty {
+  height: 400px;
+  min-height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f7f7f7;
+  border-radius: .25rem;
+  border: 2px dashed #eee;
+}
+
+.rvt-empty__container {
+  max-width: 25rem;
+  text-align: center;
+}
+
+.rvt-empty__title {
+  font-size: 1.8125rem;
+}
+
+.rvt-empty__description {
+  color: #666;
+}
+
+.rvt-empty__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rvt-empty__actions > *:not(:last-child) {
+  margin-right: 1rem;
+}
+
+html {
+  height: 100%;
+}
+
+body,
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.rvt-header,
+.rvt-footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.rvt-shell-sidebar {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #eaeaea;
+  display: none;
+}
+
+.rvt-shell-sidebar--light {
+  background-color: #ffffff;
+}
+
+.rvt-shell-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.rvt-shell-stage {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 1080px) {
+  .rvt-shell-wrapper--reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .rvt-shell-wrapper--reverse .rvt-shell-sidebar {
+    border-right: none;
+    border-left: 1px solid #eaeaea;
+  }
+  .rvt-shell-sidebar {
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -ms-flex-preferred-size: 280px;
+        flex-basis: 280px;
+    width: 280px;
+    border-right: 1px solid #eaeaea;
+    border-bottom: none;
+    display: block;
+    overflow-y: scroll;
+  }
+}

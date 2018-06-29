@@ -19,13 +19,13 @@ main {
 }
 
 .rvt-shell-sidebar {
-  background-color: #f7f7f7;
-  border-bottom: 1px solid #eaeaea;
+  background-color: $color-background-subtle;
+  border-bottom: 1px solid $color-black--150;
   display: none;
 }
 
 .rvt-shell-sidebar--light {
-  background-color: #ffffff;
+  background-color: $color-background;
 }
 
 .rvt-shell-wrapper {
@@ -38,22 +38,22 @@ main {
   overflow-y: scroll;
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: map-get($breakpoints, lg)) {
   .rvt-shell-wrapper--reverse {
     flex-direction: row-reverse;
 
     .rvt-shell-sidebar {
       border-right: none;
-      border-left: 1px solid #eaeaea;
+      border-left: 1px solid $color-black--150;
     }
   }
 
   .rvt-shell-sidebar {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 280px;
-    width: 280px;
-    border-right: 1px solid #eaeaea;
+    flex-basis: 17.5rem; // 280px
+    width: 17.5rem; // 280px
+    border-right: 1px solid $color-black--150;
     border-bottom: none;
     display: block;
     overflow-y: scroll;
