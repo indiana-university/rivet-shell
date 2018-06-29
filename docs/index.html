@@ -92,15 +92,18 @@
     <p class="rvt-m-top-xxs rvt-m-bottom-xxl rvt-ts-20">A configurable set of layout components for applications build using Rivet</p>
     <h2>Shell base</h2>
 <p>The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The <em>stage</em> area will fill up the remaining vertical space and push the footer to the bottom of the browser window.</p>
-<div class="rvt-m-top-xxl">
-  <label for="main-switcher">Select a shell configuration</label>
-  <select data-shell-switcher="base" id="main-switcher">
-    <option value="rivet-shell-base">Shell base</option>
-    <option value="rivet-shell-page-header-only">Shell w/ page header</option>
-    <option value="rivet-shell-sidebar">Shell sidebar</option>
-    <option value="rivet-shell-sidebar-and-header">Shell w/ sidebar and header</option>
-    <option value="rivet-shell-right-sidebar-header">Shell w/ right-hand sidebar and full-width header</option>
-  </select>
+<div class="rvt-m-top-xxl rvt-display-flex rvt-vertical-center">
+  <div class="rvt-m-right-md">
+    <label for="main-switcher">Select a shell configuration</label>
+    <select data-shell-switcher="base" id="main-switcher">
+      <option value="rivet-shell-base">Shell base</option>
+      <option value="rivet-shell-page-header-only">Shell w/ page header</option>
+      <option value="rivet-shell-sidebar">Shell sidebar</option>
+      <option value="rivet-shell-sidebar-and-header">Shell w/ sidebar and header</option>
+      <option value="rivet-shell-right-sidebar-header">Shell w/ right-hand sidebar and full-width header</option>
+    </select>
+  </div>
+  <a class="rvt-m-top-md rvt-display-inline-block" id="base-link" href="./rivet-shell-base">Full-page demo</a>
 </div>
 <div class="rvt-preview-wrapper">
   <iframe src="./rivet-shell-base" id="base"></iframe>
@@ -130,20 +133,25 @@
   <script>
 function handleChange(event) {
   // Get the element that changed
-  const switcher =
+  var switcher =
     event.target.closest('[data-shell-switcher]');
 
   // If it wasnt the switcher, bail.
   if (!switcher) return;
 
+  var switcherId =
+    switcher.getAttribute('data-shell-switcher');
+
   // Find the corresponding iframe
-  const previewIframe =
-    document.getElementById(
-      switcher.getAttribute('data-shell-switcher')
-    );
+  var previewIframe =
+    document.getElementById(switcherId);
+
+  var demoLink =
+    document.getElementById(switcherId + '-link');
 
   // Update the iframe URL.
   previewIframe.setAttribute('src', './' + switcher.value);
+  demoLink.setAttribute('href', './' + switcher.value);
 }
 
 // Listen for the change on the document
