@@ -1,7 +1,7 @@
 # rivet-shell
 A configurable set of layout components for applications build using Rivet
 
-[Download Rivet shell](https://github.com/indiana-university/rivet-shell/archive/master.zip) | [View the demo](https://indiana-university.github.io/rivet-shell/)
+[Download Rivet shell](https://github.com/levimcg/rivet-shell/archive/master.zip) | [View the demo](https://levimcg.github.io/rivet-shell/)
 
 ## TODO
 - [ ] Add more docs to README on using different configurations
