@@ -1,7 +1,7 @@
 # rivet-shell
 A configurable set of layout components for applications build using Rivet
 
-[Download Rivet shell](https://github.com/indiana-university/rivet-shell/archive/master.zip) | [View the demo](https://levimcg.github.io/rivet-shell/)
+[Download Rivet shell](https://github.com/indiana-university/rivet-shell/archive/master.zip) | [View the demo](https://indiana-university.github.io/rivet-shell/)
 
 ## TODO
 - [ ] Add more docs to README on using different configurations
@@ -20,11 +20,7 @@ The Rivet shell add-on requires the use of the core Rivet CSS. You can find out 
 ### 2. Add the markup
 TODO: Add details about the HTML markup required by your add-on to this section.
 
-```html
-<!-- TODO: Add an example of the HTML markup required by your add-on. Keep it simple! -->
-
-
-```
+[See the demo for examples](https://indiana-university.github.io/rivet-shell/)
 
 ## Installing with NPM
 (_Coming soon..._)
