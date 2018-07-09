@@ -89,13 +89,13 @@
 <body>
   <div class="rvt-container rvt-container--center rvt-container--typeset rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
     <h1>Rivet shell</h1>
-    <p class="rvt-m-top-xxs rvt-m-bottom-xxl rvt-ts-20">A configurable set of layout components for applications build using Rivet</p>
-    <h2>Shell base</h2>
+    <p class="rvt-m-top-xxs rvt-m-bottom-xxl rvt-ts-20">A configurable set of layout components for applications build using Rivet</p><h2>Shell base</h2>
 <p>The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The <em>stage</em> area will fill up the remaining vertical space and push the footer to the bottom of the browser window.</p>
 <div class="rvt-m-top-xxl rvt-display-flex rvt-vertical-center">
   <div class="rvt-m-right-md">
     <label for="main-switcher">Select a shell configuration</label>
     <select data-shell-switcher="base" id="main-switcher">
+      <option value="rivet-shell-empty">Choose...</option>
       <option value="rivet-shell-base">Shell base</option>
       <option value="rivet-shell-page-header-only">Shell w/ page header</option>
       <option value="rivet-shell-sidebar">Shell sidebar</option>
@@ -103,10 +103,10 @@
       <option value="rivet-shell-right-sidebar-header">Shell w/ right-hand sidebar and full-width header</option>
     </select>
   </div>
-  <a class="rvt-m-top-md rvt-display-inline-block" id="base-link" href="https://levimcg.github.io/rivet-shell/rivet-shell-base/index.html">Full-page demo</a>
+  <a class="rvt-m-top-md rvt-display-inline-block" id="base-link" href="#">Full-page demo</a>
 </div>
 <div class="rvt-preview-wrapper">
-  <iframe src="https://levimcg.github.io/rivet-shell/rivet-shell-base/index.html" id="base"></iframe>
+  <iframe src="./rivet-shell-empty/index.html" id="base"></iframe>
 </div>
 <h2>Shell with page header</h2>
 <p>The shell also includes a pre-configured page-level header. The shell page header has a space for a page title, back/breadcrumb navigation, and an <em>actions</em> area where you can use other Rivet controls like buttons and form inputs.</p>
@@ -123,14 +123,22 @@
 &lt;/div&gt;
 </code></pre>
 <p><a href="./rivet-shell-sidebar">Shell sidebar demo</a></p>
-
-  </div>
+</div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
   <script src="./js/rivet-add-on-boilerplate.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
-  </script>
-  <script>
+  </script><script>
+/**
+ * This is a kind of janky base URL set up, but before deploying, set
+ * this to the github pages URL. Using relative paths won't work because
+ * they default to http, not https and causes the browser to throw
+ * security errors.
+ */
+
+// var baseURL = 'https://levimcg.github.io/rivet-shell/';
+var baseURL = 'http://localhost:3000/';
+
 function handleChange(event) {
   // Get the element that changed
   var switcher =
@@ -150,12 +158,16 @@ function handleChange(event) {
     document.getElementById(switcherId + '-link');
 
   // Update the iframe URL.
-  previewIframe.setAttribute('src', 'https://levimcg.github.io/rivet-shell/' + switcher.value + '/index.html');
-  demoLink.setAttribute('href', 'https://levimcg.github.io/rivet-shell/' + switcher.value + '/index.html');
+
+  previewIframe.setAttribute('src', baseURL + switcher.value + '/index.html');
+  demoLink.setAttribute('href', baseURL + switcher.value + '/index.html');
 }
 
 // Listen for the change on the document
 document.addEventListener('change', handleChange, false);
-</script>
+</script><script>
+    var initialSwitcher = document.getElementById('base');
+    initialSwitcher.setAttribute('src', baseURL + 'rivet-shell-empty/index.html')
+  </script>
 </body>
 </html>

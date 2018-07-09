@@ -11,7 +11,6 @@
 <body>
 
 
-
 <header class="rvt-header rvt-header--light" role="banner">
   <a class="rvt-skip-link" href="#main-content">Skip to content</a>
   <div class="rvt-header__trident">
@@ -152,6 +151,42 @@
     </li>
   </ul>
 </footer>
-<script src="https://assets.uits.iu.edu/javascript/rivet/1.0.0/rivet.min.js"></script>
-</body>
+<script src="https://assets.uits.iu.edu/javascript/rivet/1.0.0/rivet.min.js"></script><script>
+/**
+ * This is a kind of janky base URL set up, but before deploying, set
+ * this to the github pages URL. Using relative paths won't work because
+ * they default to http, not https and causes the browser to throw
+ * security errors.
+ */
+
+// var baseURL = 'https://levimcg.github.io/rivet-shell/';
+var baseURL = 'http://localhost:3000/';
+
+function handleChange(event) {
+  // Get the element that changed
+  var switcher =
+    event.target.closest('[data-shell-switcher]');
+
+  // If it wasnt the switcher, bail.
+  if (!switcher) return;
+
+  var switcherId =
+    switcher.getAttribute('data-shell-switcher');
+
+  // Find the corresponding iframe
+  var previewIframe =
+    document.getElementById(switcherId);
+
+  var demoLink =
+    document.getElementById(switcherId + '-link');
+
+  // Update the iframe URL.
+
+  previewIframe.setAttribute('src', baseURL + switcher.value + '/index.html');
+  demoLink.setAttribute('href', baseURL + switcher.value + '/index.html');
+}
+
+// Listen for the change on the document
+document.addEventListener('change', handleChange, false);
+</script></body>
 </html>

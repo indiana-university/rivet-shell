@@ -3,16 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rivet shell sidebar</title>
+  <title>Rivet shell empty</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://assets.uits.iu.edu/css/rivet/1.0.0/rivet.min.css">
   <link rel="stylesheet" href="../css/rivet-shell.css">
 </head>
-<body>
-
-
-
-<header class="rvt-header rvt-header--light" role="banner">
+<body><header class="rvt-header rvt-header--light" role="banner">
   <a class="rvt-skip-link" href="#main-content">Skip to content</a>
   <div class="rvt-header__trident">
     <svg role="img" alt="" class="rvt-header__trident-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 48" aria-describedby="iu-logo">
@@ -64,70 +60,9 @@
   </div>
 </header>
 <main>
-  
-<div class="rvt-page-header rvt-page-header--padded rvt-page-header--border">
-  <div class="rvt-page-header__title-block">
-    <h1 class="rvt-page-header__title">Third level page</h1>
-    <a class="rvt-page-header__back-link" href="../">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-        <path fill="currentColor" d="M10.5,15a1,1,0,0,1-.77-.36L4.87,8.8a1.25,1.25,0,0,1,0-1.61L9.73,1.36a1,1,0,0,1,1.54,1.28L6.8,8l4.47,5.36A1,1,0,0,1,10.5,15ZM6.41,8.47h0Zm0-1h0Z"/>
-      </svg>
-      <span class="rvt-m-left-xxs">Back</span>
-    </a>
-    <!-- Optionally, you can use breadcrumbs here -->
-    <!--
-      <nav role="navigation" aria-label="Breadcrumbs">
-          <ol class="rvt-breadcrumbs rvt-m-bottom-xs">
-              <li><a href="#">Top level</a></li>
-              <li><a href="#">Second level</a></li>
-          </ol>
-      </nav>
-      -->
-  </div>
-  <div class="rvt-page-header__actions">
-    <div class="rvt-button-group">
-      <button class="rvt-button">Primary action</button>
-      <button class="rvt-button rvt-button--plain">Secondary action</button>
-      <div class="rvt-dropdown">
-        <button class="rvt-button rvt-button--plain" data-dropdown-toggle="dropdown-two" aria-haspopup="true" aria-expanded="false">
-          <span class="rvt-sr-only">More actions</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <g fill="currentColor">
-              <circle cx="8" cy="8" r="2" />
-              <circle cx="14" cy="8" r="2" />
-              <circle cx="2" cy="8" r="2" />
-            </g>
-          </svg>
-        </button>
-        <div class="rvt-dropdown__menu rvt-dropdown__menu--right" id="dropdown-two" aria-hidden="true" role="menu">
-          <a href="#">Item one</a>
-          <a href="#">Item two</a>
-          <a href="#" aria-current="page">Item three</a>
-          <a href="#">Item four</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <div class="rvt-shell-wrapper" id="main-content">
+    <div class="rvt-shell-stage rvt-p-all-md">
 
-  <div class="rvt-shell-wrapper rvt-shell-wrapper--reverse" id="main-content">
-    <div class="rvt-shell-sidebar">
-    </div>
-    <div class="rvt-shell-stage">
-      <div class="rvt-p-all-md">
-        
-<div class="rvt-empty">
-  <div class="rvt-empty__container">
-    <span class="rvt-empty__title">Start here...</span>
-    <p class="rvt-empty__description">Put description text here that helps people understand how to get started using your app.</p>
-    <div class="rvt-empty__actions">
-      <a class="rvt-button" href="#">Primary</a>
-      <a href="#">Secondary</a>
-    </div>
-  </div>
-</div>
-
-      </div>
     </div>
   </div>
 </main>
@@ -155,6 +90,7 @@
   </ul>
 </footer>
 <script src="https://assets.uits.iu.edu/javascript/rivet/1.0.0/rivet.min.js"></script>
+
 <script>
 /**
  * This is a kind of janky base URL set up, but before deploying, set

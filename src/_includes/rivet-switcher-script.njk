@@ -1,4 +1,14 @@
 <script>
+/**
+ * This is a kind of janky base URL set up, but before deploying, set
+ * this to the github pages URL. Using relative paths won't work because
+ * they default to http, not https and causes the browser to throw
+ * security errors.
+ */
+
+var baseURL = 'https://levimcg.github.io/rivet-shell/';
+// var baseURL = 'http://localhost:3000/';
+
 function handleChange(event) {
   // Get the element that changed
   var switcher =
@@ -18,8 +28,9 @@ function handleChange(event) {
     document.getElementById(switcherId + '-link');
 
   // Update the iframe URL.
-  previewIframe.setAttribute('src', 'https://levimcg.github.io/rivet-shell/' + switcher.value + '/index.html');
-  demoLink.setAttribute('href', 'https://levimcg.github.io/rivet-shell/' + switcher.value + '/index.html');
+
+  previewIframe.setAttribute('src', baseURL + switcher.value + '/index.html');
+  demoLink.setAttribute('href', baseURL + switcher.value + '/index.html');
 }
 
 // Listen for the change on the document

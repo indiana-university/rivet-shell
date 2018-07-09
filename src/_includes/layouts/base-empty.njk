@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../css/rivet-shell.css">
 </head>
 <body>
-{{ layoutContent | safe }}
+{{- layoutContent | safe -}}
+{%- include "rivet-switcher-script.njk" -%}
 </body>
 </html>
