@@ -6,6 +6,7 @@
 
 /*! Rivet - @version v1.0.0 */
 .rvt-page-header {
+  background-color: #ffffff;
   /**
    * Do this so visually change the source order. This way screen readers will
    * announce the title before the nav.
@@ -121,6 +122,10 @@
   margin-right: 1rem;
 }
 
+.rvt-empty--light {
+  background-color: #ffffff;
+}
+
 html {
   height: 100%;
 }
@@ -143,17 +148,7 @@ main {
       flex-shrink: 0;
 }
 
-.rvt-shell-sidebar {
-  background-color: #f7f7f7;
-  border-bottom: 1px solid #eaeaea;
-  display: none;
-}
-
-.rvt-shell-sidebar--light {
-  background-color: #ffffff;
-}
-
-.rvt-shell-wrapper {
+.rvt-shell {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -162,25 +157,39 @@ main {
   display: flex;
 }
 
-.rvt-shell-stage {
+.rvt-shell__sidebar {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #eaeaea;
+  display: none;
+}
+
+.rvt-shell__sidebar--light {
+  background-color: #ffffff;
+}
+
+.rvt-shell__stage {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   overflow-y: scroll;
 }
 
+.rvt-shell__stage--subtle {
+  background-color: #f7f7f7;
+}
+
 @media screen and (min-width: 1080px) {
-  .rvt-shell-wrapper--reverse {
+  .rvt-shell--reverse {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
-  .rvt-shell-wrapper--reverse .rvt-shell-sidebar {
+  .rvt-shell--reverse .rvt-shell__sidebar {
     border-right: none;
     border-left: 1px solid #eaeaea;
   }
-  .rvt-shell-sidebar {
+  .rvt-shell__sidebar {
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
             flex-grow: 0;

@@ -18,48 +18,50 @@ main {
   flex-shrink: 0;
 }
 
-.rvt-shell-wrapper {
+.rvt-shell {
   flex-grow: 1;
   display: flex;
-}
 
-.rvt-shell-sidebar {
-  background-color: $color-background-subtle;
-  border-bottom: 1px solid $color-black--150;
-  display: none;
+  &__sidebar {
+    background-color: $color-background-subtle;
+    border-bottom: 1px solid $color-black--150;
+    display: none;
+  }
 
-  &--light {
+  &__sidebar--light {
     background-color: $color-background;
   }
-}
 
-.rvt-shell-stage {
-  flex-grow: 1;
-  overflow-y: scroll;
+  &__stage {
+    flex-grow: 1;
+    overflow-y: scroll;
+  }
 
-  &--subtle {
+  &__stage--subtle {
     background-color: $color-background-subtle;
   }
 }
 
 @media screen and (min-width: map-get($breakpoints, lg)) {
-  .rvt-shell-wrapper--reverse {
-    flex-direction: row-reverse;
+  .rvt-shell {
+    &--reverse {
+      flex-direction: row-reverse;
+    }
 
-    .rvt-shell-sidebar {
+    &--reverse &__sidebar {
       border-right: none;
       border-left: 1px solid $color-black--150;
     }
-  }
 
-  .rvt-shell-sidebar {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 17.5rem; // 280px
-    width: 17.5rem; // 280px
-    border-right: 1px solid $color-black--150;
-    border-bottom: none;
-    display: block;
-    overflow-y: scroll;
+    &__sidebar {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 17.5rem; // 280px
+      width: 17.5rem; // 280px
+      border-right: 1px solid $color-black--150;
+      border-bottom: none;
+      display: block;
+      overflow-y: scroll;
+    }
   }
 }

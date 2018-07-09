@@ -111,39 +111,39 @@ main {
   flex-shrink: 0;
 }
 
-.rvt-shell-wrapper {
+.rvt-shell {
   flex-grow: 1;
   display: flex;
 }
 
-.rvt-shell-sidebar {
+.rvt-shell__sidebar {
   background-color: #f7f7f7;
   border-bottom: 1px solid #eaeaea;
   display: none;
 }
 
-.rvt-shell-sidebar--light {
+.rvt-shell__sidebar--light {
   background-color: #ffffff;
 }
 
-.rvt-shell-stage {
+.rvt-shell__stage {
   flex-grow: 1;
   overflow-y: scroll;
 }
 
-.rvt-shell-stage--subtle {
+.rvt-shell__stage--subtle {
   background-color: #f7f7f7;
 }
 
 @media screen and (min-width: 1080px) {
-  .rvt-shell-wrapper--reverse {
+  .rvt-shell--reverse {
     flex-direction: row-reverse;
   }
-  .rvt-shell-wrapper--reverse .rvt-shell-sidebar {
+  .rvt-shell--reverse .rvt-shell__sidebar {
     border-right: none;
     border-left: 1px solid #eaeaea;
   }
-  .rvt-shell-sidebar {
+  .rvt-shell__sidebar {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 17.5rem;

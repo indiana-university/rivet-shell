@@ -13,10 +13,12 @@
 <body>
   <div class="rvt-container rvt-container--center rvt-container--typeset rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
     <h1>{{ title }}</h1>
-    <p class="rvt-m-top-xxs rvt-ts-20">{{ description }}</p>
-    <div class="rvt-m-top-lg rvt-m-bottom-xxl">
+    <p class="rvt-m-top-xxs rvt-ts-20">{{ pkg.description }}</p>
+    <div class="rvt-display-flex rvt-m-top-lg rvt-m-bottom-xxl">
+      <a class="rvt-button rvt-m-right-sm" href="{{ pkg.repository.url }}/archive/master.zip">Download</a>
       <a class="rvt-button rvt-button--secondary" href="{{ pkg.repository.url }}">View on Github</a>
     </div>
+    <hr>
     {{- layoutContent | safe -}}
   </div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>

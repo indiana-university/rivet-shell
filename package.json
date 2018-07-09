@@ -1,7 +1,7 @@
 {
   "name": "rivet-shell",
   "version": "0.1.0-alpha",
-  "description": "A configurable set of layout components for applications build using Rivet",
+  "description": "A configurable set of layout components for applications built using Rivet",
   "repository": {
     "type": "git",
     "url": "https://github.com/indiana-university/rivet-shell"
