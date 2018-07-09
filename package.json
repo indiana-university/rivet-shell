@@ -4,7 +4,7 @@
   "description": "A configurable set of layout components for applications build using Rivet",
   "repository": {
     "type": "git",
-    "url": "https://github.com/levimcg/rivet-shell"
+    "url": "https://github.com/indiana-university/rivet-shell"
   },
   "main": "dist/css/rivet-shell.css",
   "scripts": {
