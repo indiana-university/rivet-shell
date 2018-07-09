@@ -5,7 +5,6 @@ description: A configurable set of layout components for applications build usin
 ---
 ## Shell base
 The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The _stage_ area will fill up the remaining vertical space and push the footer to the bottom of the browser window.
-
 {% include rivet-shell-switcher.njk %}
 
 ## Shell with page header
