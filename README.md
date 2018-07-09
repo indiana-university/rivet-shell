@@ -1,7 +1,7 @@
 # rivet-shell
 A configurable set of layout components for applications build using Rivet
 
-[Download Rivet shell](https://github.com/levimcg/rivet-shell/archive/master.zip) | [View the demo](https://levimcg.github.io/rivet-shell/)
+[Download Rivet shell](https://github.com/indiana-university/rivet-shell/archive/master.zip) | [View the demo](https://levimcg.github.io/rivet-shell/)
 
 ## TODO
 - [ ] Add more docs to README on using different configurations
@@ -10,7 +10,7 @@ A configurable set of layout components for applications build using Rivet
 ## Getting started
 The Rivet shell add-on requires the use of the core Rivet CSS. You can find out more about how to get started in [the Rivet documentation](https://rivet.iu.edu/components/). Once you are using Rivet, you can download the Rivet shell source files and include them in your project.
 
-[Download](https://github.iu.edu/UITS/rivet-shell/archive/master.zip)
+[Download](https://github.com/inidiana-university/rivet-shell/archive/master.zip)
 
 ### 1. Include the CCS in your page
 ```html
