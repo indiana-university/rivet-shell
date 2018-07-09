@@ -183,6 +183,7 @@ gulp.task('css:header', function () {
 // Compiles, prefixes, minifies, and versions CSS
 gulp.task('css:release', function(done) {
   runSequence(
+    'eleventy',
     'sass',
     'css:copy',
     'css:prefix',
