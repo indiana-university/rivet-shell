@@ -18,24 +18,28 @@ main {
   flex-shrink: 0;
 }
 
-.rvt-shell-sidebar {
-  background-color: $color-background-subtle;
-  border-bottom: 1px solid $color-black--150;
-  display: none;
-}
-
-.rvt-shell-sidebar--light {
-  background-color: $color-background;
-}
-
 .rvt-shell-wrapper {
   flex-grow: 1;
   display: flex;
 }
 
+.rvt-shell-sidebar {
+  background-color: $color-background-subtle;
+  border-bottom: 1px solid $color-black--150;
+  display: none;
+
+  &--light {
+    background-color: $color-background;
+  }
+}
+
 .rvt-shell-stage {
   flex-grow: 1;
   overflow-y: scroll;
+
+  &--subtle {
+    background-color: $color-background-subtle;
+  }
 }
 
 @media screen and (min-width: map-get($breakpoints, lg)) {
