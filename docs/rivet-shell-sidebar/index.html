@@ -64,8 +64,47 @@
 </header>
 <main>
   <div class="rvt-shell" id="main-content">
-    <div class="rvt-shell__sidebar">
-
+    <div class="rvt-shell__sidebar rvt-p-all-md">
+      <nav role="navigation">
+  <ul class="rvt-list-nav">
+    <li>
+      <span class="rvt-list-nav__group-heading">
+        Group One
+      </span>
+      <ul>
+        <li>
+          <a href="#">Student</a>
+        </li>
+        <li>
+          <a href="#">Faculty</a>
+        </li>
+        <li>
+          <a href="#">Staff</a>
+        </li>
+        <li>
+          <a href="#" aria-current="page">Affiliate</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span class="rvt-list-nav__group-heading">Group title</span>
+      <ul>
+        <li>
+          <a href="#">Student</a>
+        </li>
+        <li>
+          <a href="#">Faculty</a>
+        </li>
+        <li>
+          <a href="#">Staff</a>
+        </li>
+        <li>
+          <a href="#">Affiliate</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
     <div class="rvt-shell__stage rvt-p-all-md">
       
@@ -135,8 +174,8 @@ if (!Element.prototype.closest) {
  * security errors.
  */
 
-var baseURL = 'https://indiana-university.github.io/rivet-shell/';
-// var baseURL = 'http://localhost:3000/';
+// var baseURL = 'https://indiana-university.github.io/rivet-shell/';
+var baseURL = 'http://localhost:3000/';
 
 function handleChange(event) {
   // Get the element that changed
