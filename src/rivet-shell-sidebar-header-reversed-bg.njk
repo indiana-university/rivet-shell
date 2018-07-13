@@ -1,8 +1,9 @@
 ---
-title: Rivet shell sidebar
+title: Rivet shell reversed background colors
 layout: layouts/base-empty.njk
 ---
 {% from "rivet-shell-macros.njk" import emptyState %}
+{% from "rivet-shell-macros.njk" import pageHeader %}
 {% set
   emptyOptions = {
     title: 'Start here...',
@@ -13,11 +14,14 @@ layout: layouts/base-empty.njk
 {% include "rivet-header.njk" %}
 <main>
   <div class="rvt-shell" id="main-content">
-    <div class="rvt-shell__sidebar rvt-p-all-md">
+    <div class="rvt-shell__sidebar rvt-shell__sidebar--light rvt-p-all-md">
       {% include "rivet-list-nav.njk" %}
     </div>
-    <div class="rvt-shell__stage rvt-p-all-md">
-      {{ emptyState(emptyOptions.title, emptyOptions.description) }}
+    <div class="rvt-shell__stage rvt-shell__stage--subtle">
+      {{ pageHeader('Third level page', 'padded', 'border') }}
+      <div class="rvt-p-all-md">
+        {{ emptyState(emptyOptions.title, emptyOptions.description, 'light') }}
+      </div>
     </div>
   </div>
 </main>

@@ -45,8 +45,8 @@
 </div>
 {% endmacro %}
 
-{% macro emptyState(title, description) %}
-<div class="rvt-empty">
+{% macro emptyState(title, description, variant) %}
+<div class="rvt-empty{% if variant %} rvt-empty--{{ variant}}{% endif %}">
   <div class="rvt-empty__container">
     <span class="rvt-empty__title">{{ title }}</span>
     <p class="rvt-empty__description">{{ description }}</p>
