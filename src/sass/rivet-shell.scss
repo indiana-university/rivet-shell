@@ -1,59 +1,39 @@
 @import "../../node_modules/rivet-uits/sass/core/variables";
-@import "./components/rvt-page-header";
 @import "./components/rvt-empty-state";
-
-html {
-  height: 100%;
-}
-
-body,
-main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.rvt-header,
-.rvt-footer {
-  flex-shrink: 0;
-}
+@import "./components/rvt-list-nav";
+@import "./components/rvt-page-header";
 
 .rvt-shell {
-  flex-grow: 1;
-  display: flex;
-
   &__sidebar {
+    display: none;
     background-color: $color-background-subtle;
     border-bottom: 1px solid $color-black--150;
-    display: none;
-  }
-
-  &__sidebar--light {
-    background-color: $color-background;
-  }
-
-  &__stage {
-    flex-grow: 1;
-    overflow-y: scroll;
-  }
-
-  &__stage--subtle {
-    background-color: $color-background-subtle;
   }
 }
 
-@media screen and (min-width: map-get($breakpoints, lg)) {
-  .rvt-shell {
-    &--reverse {
-      flex-direction: row-reverse;
-    }
+@media screen and (min-width: map-get($breakpoints, md)) {
+  html {
+    height: 100%;
+  }
 
-    &--reverse &__sidebar {
-      border-right: none;
-      border-left: 1px solid $color-black--150;
-    }
+  body,
+  main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .rvt-header,
+  .rvt-footer {
+    flex-shrink: 0;
+  }
+
+  .rvt-shell {
+    flex-grow: 1;
+    display: flex;
 
     &__sidebar {
+      display: block;
       flex-grow: 0;
       flex-shrink: 0;
       flex-basis: 17.5rem; // 280px
@@ -62,6 +42,28 @@ main {
       border-bottom: none;
       display: block;
       overflow-y: scroll;
+    }
+
+    &__sidebar--light {
+      background-color: $color-background;
+    }
+
+    &__stage {
+      flex-grow: 1;
+      overflow-y: scroll;
+    }
+
+    &__stage--subtle {
+      background-color: $color-background-subtle;
+    }
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--reverse &__sidebar {
+      border-right: none;
+      border-left: 1px solid $color-black--150;
     }
   }
 }
