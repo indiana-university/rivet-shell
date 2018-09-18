@@ -41,7 +41,7 @@
       border-right: 1px solid $color-black--150;
       border-bottom: none;
       display: block;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 
     &__sidebar--light {
