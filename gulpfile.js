@@ -214,7 +214,6 @@ gulp.task('css:release', function(done) {
     'css:copy',
     'css:prefix',
     'css:minify',
-    'css:header',
     done
   );
 });
