@@ -45,6 +45,7 @@
   .rvt-page-header {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 
     &__actions {
       margin-left: auto;
