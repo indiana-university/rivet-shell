@@ -127,6 +127,7 @@ SPDX-License-Identifier: BSD-3-Clause
 &lt;/footer&gt;
 </code></pre>
 <p><strong>NOTE</strong>: The root <code>rvt-shell</code> class should be applied to the <code>&lt;main&gt;</code> element of your document to work correctly.</p>
+<p><a href="./rivet-shell-page-header-only/index.html" class="rvt-button rvt-m-tb-lg">View the basic configuration demo</a></p>
 <h2>Shell sidebar</h2>
 <p>To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.</p>
 <pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
@@ -143,6 +144,30 @@ SPDX-License-Identifier: BSD-3-Clause
   &lt;/div&gt;
 &lt;/main&gt;
 </code></pre>
+<p><a href="./rivet-shell-sidebar/index.html" class="rvt-button rvt-m-tb-lg">View the sidebar demo</a></p>
+<h2>Full sidebar and page header layout</h2>
+<p>For more complex layouts and navigation structure the shell sidebar and page header can be used together. Building on the <em>Shell sidebar</em> example above, you can place the <code>rvt-page-header</code> component included with the shell inside the stage area to make a more complex layout.</p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__sidebar&quot;&gt;
+    &lt;nav role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;rvt-list-nav&quot;&gt;
+        &lt;li&gt;Nav item one&lt;/li&gt;
+        &lt;!-- Rest of navigation --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell__stage rvt-p-all-md&quot;&gt;
+    &lt;div class=&quot;rvt-page-header&quot;&gt;
+      &lt;!-- Page header content --&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;rvt-p-all&quot;&gt;
+      &lt;!-- Main content &quot;Stage&quot; --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<p>In the example above we've used a Rivet spacing utility class to add a bit of padding to the stage content area underneath the page header. We intentionally do not build in padding to the stage so that users have more control over how the content is laid our in the stage area. For example when using the page header.</p>
+<p><a href="./rivet-shell-sidebar-and-header/index.html" class="rvt-button rvt-m-tb-lg">View the sidebar and header demo</a></p>
 <h2>Shell modifiers</h2>
 <p>There are a couple of different modifiers you can use to modify the shell layout and appearance.</p>
 <h3>Reverse modifier</h3>
@@ -167,6 +192,8 @@ SPDX-License-Identifier: BSD-3-Clause
   &lt;/div&gt;
 &lt;/main&gt;
 </code></pre>
+<h2>Shell demo switcher</h2>
+<p>Select a configuration below and click the <em>Full-page demo</em> link to view a demo of possible shell layouts.</p>
 <!--
   Copyright (C) 2018 The Trustees of Indiana University
   SPDX-License-Identifier: BSD-3-Clause
