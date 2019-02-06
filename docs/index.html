@@ -100,7 +100,74 @@ SPDX-License-Identifier: BSD-3-Clause
       <a class="rvt-button rvt-m-right-sm" href="https://github.com/indiana-university/rivet-shell/archive/master.zip">Download</a>
       <a class="rvt-button rvt-button--secondary" href="https://github.com/indiana-university/rivet-shell">View on Github</a>
     </div>
-    <hr><!--
+    <hr><h2>Basic shell configuration</h2>
+<p>The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The <em>stage</em> area will fill up the remaining vertical space and push the footer to the bottom of the browser window.</p>
+<p>Inside the stage are we include a <em>page header</em> component that is used for page/view-specific content. The page header includes:</p>
+<ul>
+<li>A title block</li>
+<li>Breadcrumb navigation</li>
+<li>A dedicated toolbar-like space for actions and links</li>
+</ul>
+<pre><code class="language-html">&lt;header class=&quot;rvt-header&quot;&gt;
+  &lt;!-- Rivet header markup --&gt;
+&lt;/header&gt;
+
+&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__stage&quot;&gt;
+    &lt;div class=&quot;rivet-page-header&quot;&gt;
+      &lt;!-- Page header content --&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Rest of your apps main content --&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class=&quot;rvt-footer&quot;&gt;
+  &lt;!-- Rivet footer markup --&gt;
+&lt;/footer&gt;
+</code></pre>
+<p><strong>NOTE</strong>: The root <code>rvt-shell</code> class should be applied to the <code>&lt;main&gt;</code> element of your document to work correctly.</p>
+<h2>Shell sidebar</h2>
+<p>To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.</p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__sidebar&quot;&gt;
+    &lt;nav role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;rvt-list-nav&quot;&gt;
+        &lt;li&gt;Nav item one&lt;/li&gt;
+        &lt;!-- Rest of navigation --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell__stage rvt-p-all-md&quot;&gt;
+    &lt;!-- Main content &quot;Stage&quot; --&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<h2>Shell modifiers</h2>
+<p>There are a couple of different modifiers you can use to modify the shell layout and appearance.</p>
+<h3>Reverse modifier</h3>
+<p>If you are using the shell sidebar, the <code>rvt-shell--reverse</code> modifier will move the sidebar to the right side of the shell layout.</p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell rvt-shell--reverse&quot;&gt;
+  &lt;!-- Shell content --&gt;
+&lt;/main&gt;
+</code></pre>
+<h3>Sidebar and stage modifiers</h3>
+<p>You can use the <code>rvt-shell__sidebar--light</code> modifier to changes the background color of the sidebar to white. This works really will with the <code>rvt-shell__stage--subtle</code> modifier which will apply a subtle gray background to the stage, effectively swapping the default colors.</p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__sidebar rvt-shell__sidebar--light&quot;&gt;
+    &lt;nav role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;rvt-list-nav&quot;&gt;
+        &lt;li&gt;Nav item one&lt;/li&gt;
+        &lt;!-- Rest of navigation --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell__stage rvt-shell__stage--subtle&quot;&gt;
+    &lt;!-- Main content &quot;Stage&quot; --&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<!--
   Copyright (C) 2018 The Trustees of Indiana University
   SPDX-License-Identifier: BSD-3-Clause
 -->
@@ -109,7 +176,6 @@ SPDX-License-Identifier: BSD-3-Clause
     <label for="main-switcher">Select a shell configuration</label>
     <select data-shell-switcher="base" id="main-switcher">
       <option value="rivet-shell-empty">Choose...</option>
-      <option value="rivet-shell-base">Shell base</option>
       <option value="rivet-shell-page-header-only">Shell w/ page header</option>
       <option value="rivet-shell-sidebar">Shell sidebar</option>
       <option value="rivet-shell-sidebar-and-header">Shell w/ sidebar and header</option>
@@ -121,42 +187,6 @@ SPDX-License-Identifier: BSD-3-Clause
 <div class="rvt-preview-wrapper rvt-m-top-xxl rvt-m-bottom-xxl">
   <iframe src="#" id="base"></iframe>
 </div>
-<h2>Shell base</h2>
-<p>The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The <em>stage</em> area will fill up the remaining vertical space and push the footer to the bottom of the browser window.</p>
-<pre><code class="language-html">&lt;div class=&quot;rvt-shell&quot;&gt;
-  &lt;div class=&quot;rvt-shell__stage&quot;&gt;
-    &lt;!-- Main content &quot;Stage&quot; --&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p><a href="./rivet-shell-empty">Shell base demo</a></p>
-<h2>Shell with page header</h2>
-<p>The shell also includes a pre-configured page-level header. The shell page header has a space for a page title, back/breadcrumb navigation, and an <em>actions</em> area where you can use other Rivet controls like buttons and form inputs.</p>
-<pre><code class="language-html">&lt;div class=&quot;rvt-shell&quot;&gt;
-  &lt;div class=&quot;rvt-shell__stage&quot;&gt;
-    &lt;div class=&quot;rivet-page-header&quot;&gt;
-      &lt;!-- Page header content --&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;rvt-p-all-md&quot;&gt;
-      &lt;!-- Main content &quot;Stage&quot; --&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p><a href="./rivet-shell-page-header-only">Shell with page header demo</a></p>
-<h2>Shell sidebar</h2>
-<p>To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.</p>
-<pre><code class="language-html">&lt;div class=&quot;rvt-shell&quot;&gt;
-  &lt;div class=&quot;rvt-shell__sidebar&quot;&gt;
-    &lt;!-- Sidebar content --&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;rvt-shell__stage rvt-p-all-md&quot;&gt;
-    &lt;!-- Main content &quot;Stage&quot; --&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p><a href="./rivet-shell-sidebar">Shell sidebar demo</a></p>
-<h2>More docs coming soon...</h2>
 </div>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
   <script>

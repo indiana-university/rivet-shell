@@ -19,10 +19,11 @@ layout: layouts/base-empty.njk
   <div class="rvt-shell__stage">
     {{ pageHeader('Third level page', 'padded', 'border') }}
     <div class="rvt-p-all-md">
-      {# {{ emptyState(emptyOptions.title, emptyOptions.description) }} #}
-      {% include "ipsum.njk" %}
+      {{ emptyState(emptyOptions.title, emptyOptions.description) }}
+      {# {% include "ipsum.njk" %} #}
     </div>
   </div>
 </main>
 {% include "rivet-footer.njk" %}
+
 <script src="https://assets.uits.iu.edu/javascript/rivet/1.1.0/rivet.min.js"></script>
