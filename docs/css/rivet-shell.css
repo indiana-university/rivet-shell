@@ -164,21 +164,27 @@ li:first-child .rvt-list-nav__group-heading {
 }
 
 @media screen and (min-width: 740px) {
+  body,
   html {
     height: 100%;
   }
-  body,
-  main {
+  body {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+  }
+  main {
+    flex-grow: 1;
+    /**
+     * This makes Firefox behave the same way as Chrome with a sticky footer.
+     */
+    min-height: 0;
   }
   .rvt-header,
   .rvt-footer {
     flex-shrink: 0;
   }
   .rvt-shell {
-    flex-grow: 1;
     display: flex;
   }
   .rvt-shell__sidebar {
@@ -189,7 +195,6 @@ li:first-child .rvt-list-nav__group-heading {
     width: 17.5rem;
     border-right: 1px solid #eaeaea;
     border-bottom: none;
-    display: block;
     overflow-y: auto;
   }
   .rvt-shell__sidebar--light {

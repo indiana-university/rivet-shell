@@ -15,15 +15,23 @@
 }
 
 @media screen and (min-width: map-get($breakpoints, md)) {
+  body,
   html {
     height: 100%;
   }
-
-  body,
-  main {
+  
+  body {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+  }
+
+  main {
+    flex-grow: 1;
+    /**
+     * This makes Firefox behave the same way as Chrome with a sticky footer.
+     */
+    min-height: 0;
   }
 
   .rvt-header,
@@ -32,7 +40,6 @@
   }
 
   .rvt-shell {
-    flex-grow: 1;
     display: flex;
 
     &__sidebar {
@@ -43,7 +50,6 @@
       width: 17.5rem; // 280px
       border-right: 1px solid $color-black--150;
       border-bottom: none;
-      display: block;
       overflow-y: auto;
     }
 

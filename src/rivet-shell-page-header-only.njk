@@ -11,13 +11,11 @@ layout: layouts/base-empty.njk
   }
 -%}
 {% include "rivet-header.njk" %}
-<main>
-  <div class="rvt-shell" id="main-content">
-    <div class="rvt-shell__stage">
-      {{- pageHeader('Third level page', 'padded', 'border') -}}
-      <div class="rvt-p-all-md">
-        {{- emptyState(emptyOptions.title, emptyOptions.description) -}}
-      </div>
+<main class="rvt-shell" id="main-content">
+  <div class="rvt-shell__stage">
+    {{- pageHeader('Third level page', 'padded', 'border') -}}
+    <div class="rvt-p-all-md">
+      {{- emptyState(emptyOptions.title, emptyOptions.description) -}}
     </div>
   </div>
 </main>

@@ -64,9 +64,8 @@ SPDX-License-Identifier: BSD-3-Clause
     <button class="rvt-drawer__bottom-close">Close nav</button>
   </div>
 </header>
-<main>
-  <div class="rvt-shell" id="main-content">
-    <div class="rvt-shell__stage">
+<main class="rvt-shell" id="main-content">
+  <div class="rvt-shell__stage">
 <div class="rvt-page-header rvt-page-header--padded rvt-page-header--border">
   <div class="rvt-page-header__title-block">
     <h1 class="rvt-page-header__title">Third level page</h1>
@@ -123,7 +122,6 @@ SPDX-License-Identifier: BSD-3-Clause
   </div>
 </div>
 </div>
-    </div>
   </div>
 </main>
 
@@ -180,8 +178,8 @@ if (!Element.prototype.closest) {
  * security errors.
  */
 
-var baseURL = 'https://indiana-university.github.io/rivet-shell/';
-// var baseURL = 'http://localhost:3000/';
+// var baseURL = 'https://indiana-university.github.io/rivet-shell/';
+var baseURL = 'http://localhost:3000/';
 
 function handleChange(event) {
   // Get the element that changed
