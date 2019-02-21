@@ -18,7 +18,6 @@ The Rivet shell add-on requires the use of the core Rivet CSS. You can find out 
 ```
 
 ### 2. Add the markup
-TODO: Add details about the HTML markup required by your add-on to this section.
 
 [See the demo for examples](https://indiana-university.github.io/rivet-shell/)
 

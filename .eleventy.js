@@ -7,6 +7,8 @@ module.exports = function (eleventyConfig) {
       </div>`;
   });
   
+  eleventyConfig.addPassthroughCopy('src/img');
+  
   return {
     dir: {
       input: 'src',

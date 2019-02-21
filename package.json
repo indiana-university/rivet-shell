@@ -1,6 +1,6 @@
 {
   "name": "rivet-shell",
-  "version": "0.2.1",
+  "version": "1.0.0-alpha",
   "description": "A configurable set of layout components for applications built using Rivet",
   "repository": {
     "type": "git",
