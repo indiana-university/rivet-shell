@@ -1,4 +1,3 @@
-/*! rivet-uits - @version v1.1.0 */
 .rvt-empty {
   height: 25rem;
   min-height: 25rem;
@@ -142,7 +141,7 @@ li:first-child .rvt-list-nav__group-heading {
   padding: 1.5rem;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 46.25em) {
   .rvt-page-header {
     display: flex;
     align-items: center;
@@ -163,7 +162,7 @@ li:first-child .rvt-list-nav__group-heading {
   border-bottom: 1px solid #eaeaea;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 46.25em) {
   body,
   html {
     height: 100%;

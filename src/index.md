@@ -22,7 +22,7 @@ Inside the stage are we include a _page header_ component that is used for page/
       <!-- Page header content -->
     </div>
     
-    <!-- Rest of your apps main content -->
+    <!-- Rest of your app's main content -->
   </div>
 </main>
 
@@ -31,7 +31,8 @@ Inside the stage are we include a _page header_ component that is used for page/
 </footer>
 ```
 
-**NOTE**: The root `rvt-shell` class should be applied to the `<main>` element of your document to work correctly. 
+### Shell markup changes
+New in 0.3.0—The root `.rvt-shell` class should be applied to the `<main>` element of your document as of version `0.3.0`. See the previous code example for an example of how to structure your markup to include the Rivet header and footer directly before and after the `<main class="rvt-shell">` element.
 
 <a href="./rivet-shell-page-header-only/index.html" class="rvt-button rvt-m-tb-lg">View the basic configuration demo</a>
 

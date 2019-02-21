@@ -118,7 +118,7 @@ SPDX-License-Identifier: BSD-3-Clause
       &lt;!-- Page header content --&gt;
     &lt;/div&gt;
     
-    &lt;!-- Rest of your apps main content --&gt;
+    &lt;!-- Rest of your app's main content --&gt;
   &lt;/div&gt;
 &lt;/main&gt;
 
@@ -126,7 +126,8 @@ SPDX-License-Identifier: BSD-3-Clause
   &lt;!-- Rivet footer markup --&gt;
 &lt;/footer&gt;
 </code></pre>
-<p><strong>NOTE</strong>: The root <code>rvt-shell</code> class should be applied to the <code>&lt;main&gt;</code> element of your document to work correctly.</p>
+<h3>Shell markup changes</h3>
+<p>New in 0.3.0—The root <code>.rvt-shell</code> class should be applied to the <code>&lt;main&gt;</code> element of your document as of version <code>0.3.0</code>. See the previous code example for an example of how to structure your markup to include the Rivet header and footer directly before and after the <code>&lt;main class=&quot;rvt-shell&quot;&gt;</code> element.</p>
 <p><a href="./rivet-shell-page-header-only/index.html" class="rvt-button rvt-m-tb-lg">View the basic configuration demo</a></p>
 <h2>Shell sidebar</h2>
 <p>To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.</p>
@@ -248,8 +249,8 @@ if (!Element.prototype.closest) {
  * security errors.
  */
 
-// var baseURL = 'https://indiana-university.github.io/rivet-shell/';
-var baseURL = 'http://localhost:3000/';
+var baseURL = 'https://indiana-university.github.io/rivet-shell/';
+// var baseURL = 'http://localhost:3000/';
 
 function handleChange(event) {
   // Get the element that changed
