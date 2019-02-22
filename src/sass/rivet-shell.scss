@@ -1,10 +1,10 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@import "../../node_modules/rivet-uits/sass/core/variables";
-@import "./components/rvt-empty-state";
-@import "./components/rvt-list-nav";
-@import "./components/rvt-page-header";
+@import "core/variables";
+@import "components/rvt-empty-state";
+@import "components/rvt-list-nav";
+@import "components/rvt-page-header";
 
 .rvt-shell {
   &__sidebar {
