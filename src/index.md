@@ -22,7 +22,7 @@ Inside the stage are we include a _page header_ component that is used for page/
       <!-- Page header content -->
     </div>
     
-    <!-- Rest of your apps main content -->
+    <!-- Rest of your app's main content -->
   </div>
 </main>
 
@@ -31,12 +31,15 @@ Inside the stage are we include a _page header_ component that is used for page/
 </footer>
 ```
 
-**NOTE**: The root `rvt-shell` class should be applied to the `<main>` element of your document to work correctly. 
+### Shell markup changes
+New in 1.0.0—The root `.rvt-shell` class should be applied to the `<main>` element of your document as of version `1.0.0`. See the previous code example for an example of how to structure your markup to include the Rivet header and footer directly before and after the `<main class="rvt-shell">` element.
 
 <a href="./rivet-shell-page-header-only/index.html" class="rvt-button rvt-m-tb-lg">View the basic configuration demo</a>
 
 ## Shell sidebar
 To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.
+
+![The Rivet shell layout with sidebar highlighted](./img/rvt-shell-sidebar.jpg)
 
 ```html
 <main class="rvt-shell">
@@ -56,8 +59,10 @@ To offer even more flexibility, the Rivet shell also comes with a sidebar compon
 
 <a href="./rivet-shell-sidebar/index.html" class="rvt-button rvt-m-tb-lg">View the sidebar demo</a>
 
-## Full sidebar and page header layout
+## Sidebar and page header layout
 For more complex layouts and navigation structure the shell sidebar and page header can be used together. Building on the _Shell sidebar_ example above, you can place the `rvt-page-header` component included with the shell inside the stage area to make a more complex layout.
+
+![The Rivet shell layout with page header highlighted](./img/rvt-shell-header.jpg)
 
 ```html
 <main class="rvt-shell">
@@ -110,6 +115,25 @@ You can use the `rvt-shell__sidebar--light` modifier to changes the background c
     </nav>
   </div>
   <div class="rvt-shell__stage rvt-shell__stage--subtle">
+    <!-- Main content "Stage" -->
+  </div>
+</main>
+```
+
+### Compact sidebar list nav modifier
+If you have a large amount of navigation in the shell sidebar, you can used the list nav compact modifier to reduce the amount of space between the sidebar nav items.
+
+```html
+<main class="rvt-shell">
+  <div class="rvt-shell__sidebar">
+    <nav role="navigation">
+      <ul class="rvt-list-nav rvt-list-nav--compact">
+        <li>Nav item one</li>
+        <!-- Rest of navigation -->
+      </ul>
+    </nav>
+  </div>
+  <div class="rvt-shell__stage">
     <!-- Main content "Stage" -->
   </div>
 </main>

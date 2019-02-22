@@ -2,25 +2,28 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const cp = require('child_process');
 const sass = require('gulp-sass');
-const rollup = require('rollup');
-const babel = require('rollup-plugin-babel');
 const browserSync = require('browser-sync').create();
 const header = require('gulp-header');
-const runSequence = require('run-sequence');
-const uglify = require('gulp-uglify');
-const pump = require('pump');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const cssnano = require('gulp-cssnano');
 const autoprefixer = require('autoprefixer')
-const package = require('./package.json');
+const pkg = require('./package.json');
+
+/**
+ * node-sass has an "includePaths" option that we can use to pass
+ * an array of file paths where we want it to look for sass files
+ * to import. Makes it much easier to include the sass files from
+ * the Rivet npm package.
+ */
+const sassPaths = ['./node_modules/rivet-uits/sass/'];
 
 const banner = `/*!
  *
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
 
- * ${package.name} - @version ${package.version}
+ * ${pkg.name} - @version ${pkg.version}
  */
 
 `;
@@ -60,14 +63,16 @@ gulp.task('eleventy:watch', function () {
 gulp.task('sass', function () {
   return gulp
     .src('src/sass/**/*.scss')
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+    .pipe(sass({
+      outputStyle: 'expanded',
+      includePaths: sassPaths
+    }).on('error', sass.logError))
     .pipe(gulp.dest('docs/css/'));
 });
 
 gulp.task('sass:watch', function() {
   gulp.watch('src/sass/**/*.scss', gulp.task('sass'));
 });
-
 
 // Development server
 gulp.task('serve', function () {
@@ -90,7 +95,7 @@ gulp.task('css:copy', function() {
 });
 
 gulp.task('css:minify', function () {
-  return gulp.src('dist/css/' + package.name + '.css')
+  return gulp.src('dist/css/' + pkg.name + '.css')
     .pipe(cssnano())
     .pipe(rename({
       suffix: '.min'
@@ -99,19 +104,19 @@ gulp.task('css:minify', function () {
 });
 
 gulp.task('css:prefix', function () {
-  return gulp.src('dist/css/' + package.name + '.css')
+  return gulp.src('dist/css/' + pkg.name + '.css')
     .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
     .pipe(gulp.dest('dist/css/'));
 });
 
 
 gulp.task('css:header', function (done) {
-  gulp.src('dist/css/' + package.name + '.css')
-    .pipe(header(banner, { package: package }))
+  gulp.src('dist/css/' + pkg.name + '.css')
+    .pipe(header(banner, { pkg: pkg }))
     .pipe(gulp.dest('dist/css/'));
 
-  gulp.src('dist/css/' + package.name + '.min.css')
-    .pipe(header(banner, { package: package }))
+  gulp.src('dist/css/' + pkg.name + '.min.css')
+    .pipe(header(banner, { pkg: pkg }))
     .pipe(gulp.dest('dist/css/'));
 
   done();
