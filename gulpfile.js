@@ -92,8 +92,8 @@ function copyCSS() {
   return src("./docs/css/**/*.css").pipe(dest("./dist/css/"));
 }
 
-function minifyCSS() {
-  src("dist/css" + pkg.name + ".css")
+function minifyCSS(callback) {
+  src("dist/css/" + pkg.name + ".css")
     .pipe(cssnano())
     .pipe(
       rename({
@@ -101,6 +101,7 @@ function minifyCSS() {
       })
     )
     .pipe(dest("dist/css/"));
+  callback();
 }
 
 function prefixCSS() {

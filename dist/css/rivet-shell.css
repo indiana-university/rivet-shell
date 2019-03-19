@@ -3,10 +3,9 @@
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
 
- * rivet-shell - @version 0.2.1
+ * rivet-shell - @version 1.0.0-alpha
  */
 
-/*! rivet-uits - @version v1.1.0 */
 .rvt-empty {
   height: 25rem;
   min-height: 25rem;
@@ -176,7 +175,7 @@ li:first-child .rvt-list-nav__group-heading {
   padding: 1.5rem;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 46.25em) {
   .rvt-page-header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -202,12 +201,13 @@ li:first-child .rvt-list-nav__group-heading {
   border-bottom: 1px solid #eaeaea;
 }
 
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 46.25em) {
+  body,
   html {
     height: 100%;
   }
-  body,
-  main {
+  body {
+    height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -215,7 +215,15 @@ li:first-child .rvt-list-nav__group-heading {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 100%;
+  }
+  main {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    /**
+     * This makes Firefox behave the same way as Chrome with a sticky footer.
+     */
+    min-height: 0;
   }
   .rvt-header,
   .rvt-footer {
@@ -223,9 +231,6 @@ li:first-child .rvt-list-nav__group-heading {
         flex-shrink: 0;
   }
   .rvt-shell {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -242,7 +247,6 @@ li:first-child .rvt-list-nav__group-heading {
     width: 17.5rem;
     border-right: 1px solid #eaeaea;
     border-bottom: none;
-    display: block;
     overflow-y: auto;
   }
   .rvt-shell__sidebar--light {
