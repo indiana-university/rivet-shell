@@ -9,7 +9,8 @@
   "main": "dist/css/rivet-shell.css",
   "scripts": {
     "start": "npx gulp",
-    "build": "npx gulp release"
+    "build": "npx gulp release",
+    "deploy": "gulp buildDocs && npx gh-pages -d docs"
   },
   "author": "Indiana University",
   "license": "BSD-3-Clause",
