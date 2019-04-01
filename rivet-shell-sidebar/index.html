@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2018 The Trustees of Indiana University
+SPDX-License-Identifier: BSD-3-Clause
+-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Rivet shell sidebar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://assets.uits.iu.edu/css/rivet/1.0.0/rivet.min.css">
+  <link rel="stylesheet" href="../css/rivet-shell.css">
+</head>
+<body>
+
+
+
+<header class="rvt-header rvt-header--light" role="banner">
+  <a class="rvt-skip-link" href="#main-content">Skip to content</a>
+  <div class="rvt-header__trident">
+    <svg role="img" alt="" class="rvt-header__trident-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 48" aria-describedby="iu-logo">
+      <title id="iu-logo">Indiana University Logo</title>
+      <rect width="41" height="48" fill="#900" />
+      <polygon points="24.59 12.64 24.59 14.98 26.34 14.98 26.34 27.78 22.84 27.78 22.84 10.9 24.59 10.9 24.59 8.57 16.41 8.57 16.41 10.9 18.16 10.9 18.16 27.78 14.66 27.78 14.66 14.98 16.41 14.98 16.41 12.64 8.22 12.64 8.22 14.98 9.97 14.98 9.97 30.03 12.77 33.02 18.16 33.02 18.16 36.52 16.41 36.52 16.41 39.43 24.59 39.43 24.59 36.52 22.84 36.52 22.84 33.02 28 33.02 31.01 30.03 31.01 14.98 32.78 14.98 32.78 12.64 24.59 12.64"
+        fill="#fff" />
+    </svg>
+  </div>
+  <span class="rvt-header__title">
+    <a href="../">Application Title</a>
+  </span>
+  <div class="rvt-header__controls">
+    <div class="rvt-header-id">
+      <div href="#0" class="rvt-header-id__profile">
+        <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
+        <span class="rvt-header-id__user">rswanson</span>
+      </div>
+      <a href="#0" class="rvt-header-id__log-out">
+        Log out
+      </a>
+    </div>
+    <button class="rvt-drawer-button" aria-haspopup="true" aria-expanded="false" data-drawer-toggle="mobile-drawer">
+      <span class="sr-only">Toggle menu</span>
+      <svg role="img" alt="" class="rvt-drawer-button-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <g fill="currentColor">
+          <path d="M15,3H1A1,1,0,0,1,1,1H15a1,1,0,0,1,0,2Z" />
+          <path d="M15,9H1A1,1,0,0,1,1,7H15a1,1,0,0,1,0,2Z" />
+          <path d="M15,15H1a1,1,0,0,1,0-2H15a1,1,0,0,1,0,2Z" />
+        </g>
+      </svg>
+      <svg role="img" alt="" class="rvt-drawer-button-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M9.41,8l5.29-5.29a1,1,0,0,0-1.41-1.41L8,6.59,2.71,1.29A1,1,0,0,0,1.29,2.71L6.59,8,1.29,13.29a1,1,0,1,0,1.41,1.41L8,9.41l5.29,5.29a1,1,0,0,0,1.41-1.41Z"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="rvt-drawer" aria-hidden="true" id="mobile-drawer">
+    <div class="rvt-header-id rvt-header-id--drawer">
+      <div class="rvt-header-id__profile rvt-header-id__profile--drawer p-all-sm">
+        <span class="rvt-header-id__avatar" aria-hidden="true">RS</span>
+        <span class="rvt-header-id__user">rswanson</span>
+        <a href="#0" class="rvt-header-id__log-out">
+          Log out
+        </a>
+      </div>
+    </div>
+    <button class="rvt-drawer__bottom-close">Close nav</button>
+  </div>
+</header>
+<main class="rvt-shell" id="main-content">
+  <div class="rvt-shell__sidebar rvt-p-all-md">
+    
+<nav role="navigation">
+  <ul class="rvt-list-nav">
+    <li>
+      <span class="rvt-list-nav__group-heading">
+        Group One
+      </span>
+      <ul>
+        <li>
+          <a href="#">Student</a>
+        </li>
+        <li>
+          <a href="#">Faculty</a>
+        </li>
+        <li>
+          <a href="#">Staff</a>
+        </li>
+        <li>
+          <a href="#" aria-current="page">Affiliate</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span class="rvt-list-nav__group-heading">Group title</span>
+      <ul>
+        <li>
+          <a href="#">Student</a>
+        </li>
+        <li>
+          <a href="#">Faculty</a>
+        </li>
+        <li>
+          <a href="#">Staff</a>
+        </li>
+        <li>
+          <a href="#">Affiliate</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  <div class="rvt-shell__stage" style="display:flex; flex-direction: column;">
+    
+    <div class="rvt-p-lr-xxl">
+      <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst quisque sagittis purus sit amet. Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Tellus in hac habitasse platea dictumst. Pellentesque nec nam aliquam sem et tortor consequat id porta. Amet cursus sit amet dictum sit amet justo donec. Purus faucibus ornare suspendisse sed nisi lacus sed. Blandit turpis cursus in hac. Tempus urna et pharetra pharetra massa. Nunc scelerisque viverra mauris in aliquam sem fringilla. Congue eu consequat ac felis donec. Pellentesque elit ullamcorper dignissim cras. Egestas congue quisque egestas diam in arcu cursus euismod quis. Pretium nibh ipsum consequat nisl.
+</p>
+
+<p>
+  Nisi lacus sed viverra tellus in hac habitasse platea. Mauris sit amet massa vitae. Felis donec et odio pellentesque. Magna fringilla urna porttitor rhoncus dolor. Bibendum est ultricies integer quis auctor elit sed vulputate mi. Duis at consectetur lorem donec. Non blandit massa enim nec dui nunc mattis. Odio ut sem nulla pharetra diam. Aliquet eget sit amet tellus cras adipiscing enim eu turpis. Nisi est sit amet facilisis magna. Duis ut diam quam nulla. Tortor at auctor urna nunc id cursus. Maecenas pharetra convallis posuere morbi leo urna molestie at. Ut tristique et egestas quis ipsum suspendisse ultrices gravida. Phasellus vestibulum lorem sed risus ultricies tristique nulla.
+</p>
+
+<p>
+  Euismod lacinia at quis risus sed. Lacus sed turpis tincidunt id aliquet risus feugiat. At volutpat diam ut venenatis tellus in metus vulputate eu. Volutpat lacus laoreet non curabitur. Iaculis eu non diam phasellus. Tellus at urna condimentum mattis pellentesque. Ligula ullamcorper malesuada proin libero nunc. Morbi blandit cursus risus at. Elementum nibh tellus molestie nunc non blandit massa. Adipiscing elit duis tristique sollicitudin nibh sit. Non sodales neque sodales ut etiam sit. Turpis tincidunt id aliquet risus feugiat in ante metus. Porta nibh venenatis cras sed felis. Pellentesque nec nam aliquam sem et tortor consequat id. Tellus id interdum velit laoreet id donec ultrices tincidunt arcu. Facilisis gravida neque convallis a cras semper. Diam ut venenatis tellus in. Nec tincidunt praesent semper feugiat nibh.
+</p>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Magna fringilla urna porttitor rhoncus dolor purus non. Purus ut faucibus pulvinar elementum integer enim neque volutpat ac. Montes nascetur ridiculus mus mauris. Lorem dolor sed viverra ipsum nunc. Consequat id porta nibh venenatis cras sed felis eget velit. Habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat. Nulla facilisi morbi tempus iaculis. Est ante in nibh mauris cursus mattis molestie. A lacus vestibulum sed arcu non odio euismod lacinia at. Euismod nisi porta lorem mollis. Integer eget aliquet nibh praesent tristique magna. At lectus urna duis convallis. Consectetur lorem donec massa sapien faucibus et.
+</p>
+
+<p>
+  Amet purus gravida quis blandit turpis cursus in hac habitasse. Adipiscing bibendum est ultricies integer quis auctor elit sed vulputate. Donec ultrices tincidunt arcu non sodales neque sodales ut. Est placerat in egestas erat imperdiet sed euismod. Amet risus nullam eget felis eget nunc lobortis mattis. Nisl vel pretium lectus quam id. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Justo donec enim diam vulputate. Vitae ultricies leo integer malesuada nunc vel risus. Dictum fusce ut placerat orci. Lectus nulla at volutpat diam ut venenatis tellus in metus. Odio facilisis mauris sit amet. Sed adipiscing diam donec adipiscing. Scelerisque purus semper eget duis at tellus at urna. Cras ornare arcu dui vivamus arcu.
+</p>
+
+<p>
+  Ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis. Urna id volutpat lacus laoreet non curabitur gravida arcu. Ultricies mi quis hendrerit dolor. Eget est lorem ipsum dolor sit. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis. Sit amet tellus cras adipiscing enim eu turpis. A cras semper auctor neque vitae tempus quam. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero. Egestas egestas fringilla phasellus faucibus scelerisque. Id volutpat lacus laoreet non curabitur. Dignissim enim sit amet venenatis urna cursus eget nunc scelerisque. Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Orci phasellus egestas tellus rutrum tellus pellentesque.
+</p>
+
+<p>
+  Diam vel quam elementum pulvinar etiam. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Eu augue ut lectus arcu bibendum at. At quis risus sed vulputate. Laoreet non curabitur gravida arcu ac. Orci nulla pellentesque dignissim enim sit amet. Posuere urna nec tincidunt praesent. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Id consectetur purus ut faucibus pulvinar. Duis at consectetur lorem donec. Ac turpis egestas sed tempus urna et pharetra. In aliquam sem fringilla ut morbi tincidunt augue interdum. Sem nulla pharetra diam sit amet nisl. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Arcu cursus vitae congue mauris rhoncus aenean vel. Malesuada fames ac turpis egestas sed tempus urna et. Ut tristique et egestas quis ipsum suspendisse.
+</p>
+
+<p>
+  Nisl pretium fusce id velit ut tortor pretium. Condimentum lacinia quis vel eros donec. Cras semper auctor neque vitae tempus quam pellentesque. Nulla facilisi morbi tempus iaculis urna id volutpat. Donec pretium vulputate sapien nec sagittis. Mattis pellentesque id nibh tortor id aliquet. Euismod nisi porta lorem mollis aliquam ut porttitor. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Sit amet tellus cras adipiscing. Vitae congue eu consequat ac felis donec et odio pellentesque. Accumsan in nisl nisi scelerisque. Nulla facilisi morbi tempus iaculis urna id volutpat. Elementum sagittis vitae et leo duis ut diam quam nulla. Elementum integer enim neque volutpat ac tincidunt vitae. In fermentum posuere urna nec tincidunt. Ultrices gravida dictum fusce ut. A diam sollicitudin tempor id eu nisl nunc. Faucibus in ornare quam viverra orci sagittis.
+</p>
+
+<p>
+  Proin sagittis nisl rhoncus mattis rhoncus urna. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. A diam maecenas sed enim ut. Tortor pretium viverra suspendisse potenti. Sed risus pretium quam vulputate dignissim suspendisse in est. Enim neque volutpat ac tincidunt vitae semper. Volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Ut eu sem integer vitae. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Massa massa ultricies mi quis hendrerit. Sodales ut eu sem integer vitae justo. Viverra justo nec ultrices dui. Sit amet consectetur adipiscing elit pellentesque habitant morbi. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Arcu dictum varius duis at consectetur lorem donec massa. Purus in mollis nunc sed id semper risus in.
+</p>
+
+<p>
+  Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Risus ultricies tristique nulla aliquet enim tortor. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Viverra mauris in aliquam sem fringilla. Nam at lectus urna duis convallis convallis. Mattis aliquam faucibus purus in massa tempor. Duis at consectetur lorem donec massa sapien faucibus et. Libero id faucibus nisl tincidunt eget nullam. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Interdum consectetur libero id faucibus nisl tincidunt eget nullam non.
+</p>
+    </div>
+    
+<footer class="rvt-footer" role="contentinfo">
+  <div class="rvt-footer__copyright-lockup">
+    <div class="rvt-footer__trident">
+      <svg role="img" aria-labelledby="footer-trident" xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25">
+        <title id="footer-trident">IU Trident Logo</title>
+        <polygon points="13.33 3.32 13.33 5.21 14.76 5.21 14.76 15.64 11.9 15.64 11.9 1.9 13.33 1.9 13.33 0 6.67 0 6.67 1.9 8.09 1.9 8.09 15.64 5.24 15.64 5.24 5.21 6.67 5.21 6.67 3.32 0 3.32 0 5.21 1.43 5.21 1.43 17.47 3.7 19.91 8.09 19.91 8.09 22.76 6.67 22.76 6.67 25.13 13.33 25.13 13.33 22.76 11.9 22.76 11.9 19.91 16.1 19.91 18.56 17.47 18.56 5.21 20 5.21 20 3.32 13.33 3.32"
+          fill="#900" />
+      </svg>
+    </div>
+    <p>
+      <a href="https://www.iu.edu/copyright/index.html">Copyright</a> &copy; 2018 The Trustees of
+      <a href="https://www.iu.edu/">Indiana University</a>
+    </p>
+  </div>
+  <ul class="rvt-footer__aux-links">
+    <li class="rvt-footer__aux-item">
+      <a href="#">Privacy Policy</a>
+    </li>
+    <li class="rvt-footer__aux-item">
+      <a href="https://accessibility.iu.edu/">Accessibility help</a>
+    </li>
+  </ul>
+</footer>
+  </div>
+</main>
+
+<script src="https://assets.uits.iu.edu/javascript/rivet/1.1.0/rivet.min.js"></script>
+
+<script>
+/**
+ * Element.closest() polyfill
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
+ */
+if (!Element.prototype.closest) {
+  if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  }
+
+  Element.prototype.closest = function (s) {
+    var el = this;
+    var ancestor = this;
+    if (!document.documentElement.contains(el)) return null;
+    do {
+      if (ancestor.matches(s)) return ancestor;
+      ancestor = ancestor.parentElement;
+    } while (ancestor !== null);
+    return null;
+  };
+}
+
+/**
+ * This is a kind of janky base URL set up, but before deploying, set
+ * this to the github pages URL. Using relative paths won't work because
+ * they default to http, not https and causes the browser to throw
+ * security errors.
+ */
+
+// var baseURL = 'https://indiana-university.github.io/rivet-shell/';
+var baseURL = 'http://localhost:3000/';
+
+function handleChange(event) {
+  // Get the element that changed
+  var switcher =
+    event.target.closest('[data-shell-switcher]');
+
+  // If it wasnt the switcher, bail.
+  if (!switcher) return;
+
+  var switcherId =
+    switcher.getAttribute('data-shell-switcher');
+
+  // Find the corresponding iframe
+  var previewIframe =
+    document.getElementById(switcherId);
+
+  var demoLink =
+    document.getElementById(switcherId + '-link');
+
+  // Update the iframe URL.
+
+  previewIframe.setAttribute('src', baseURL + switcher.value + '/index.html');
+  demoLink.setAttribute('href', baseURL + switcher.value + '/index.html');
+}
+
+// Listen for the change on the document
+document.addEventListener('change', handleChange, false);
+</script></body>
+</html>

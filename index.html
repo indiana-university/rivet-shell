@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2018 The Trustees of Indiana University
+SPDX-License-Identifier: BSD-3-Clause
+-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Rivet shell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://assets.uits.iu.edu/css/rivet/1.1.0/rivet.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
+  <link rel="stylesheet" href="./css/rivet-shell.css">
+  <style>
+    /**
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+
+.rvt-preview-wrapper {
+  border-top-right-radius: .25rem;
+  border-top-left-radius: .25rem;
+  box-shadow: 0 2px 14px 3px rgba(0, 0, 0, .08);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.rvt-preview-wrapper iframe {
+  width: 100%;
+  min-height: 600px;
+  border: none;
+  margin: 0;
+  display: block;
+}
+
+@media screen and (min-width: 1100px) {
+  .rvt-preview-wrapper {
+    width: 150%;
+    max-width: 150%;
+    margin-right: -25%;
+    margin-bottom: 4rem;
+    margin-left: -25%;
+  }
+}
+
+.rvt-container--typeset {
+  max-width: 768px;
+}
+
+.rvt-container--typeset img {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 1080px) {  
+  .rvt-container--typeset img {
+    width: 150%;
+    margin-right: -25%;
+    margin-left: -25%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 2px 14px 3px rgba(0, 0, 0, .08);
+  }
+}
+
+.rvt-typeset h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+.rvt-typeset h2 {
+  font-size: 1.75rem;
+}
+
+.rvt-typeset h3 {
+  font-size: 1.5rem;
+}
+
+.rvt-typeset h4,
+.rvt-typeset h5,
+.rvt-typeset h6 {
+  font-size: 1.25rem;
+}
+
+.rvt-typeset h1,
+.rvt-typeset h2,
+.rvt-typeset h3,
+.rvt-typeset h4,
+.rvt-typeset h5,
+.rvt-typeset h6 {
+  font-weight: 700;
+  margin-top: 2.5rem;
+}
+
+pre {
+  margin-top: 1.5rem;
+  border-radius: .25rem;
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+
+pre,
+code {
+  background-color: #f7f7f7;
+}
+
+code {
+  font-size: 1rem;
+  font-family: 'Monaco', 'Menolo', 'Andale mono', monospace;
+}
+  </style>
+</head>
+<body>
+  <div class="rvt-container rvt-container--center rvt-container--typeset rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
+    <h1>Rivet shell</h1>
+    <p class="rvt-m-top-xxs rvt-ts-20">A configurable set of layout components for applications built using Rivet</p>
+    <div class="rvt-display-flex rvt-m-top-lg rvt-m-bottom-xxl">
+      <a class="rvt-button rvt-m-right-sm" href="https://github.com/indiana-university/rivet-shell/archive/master.zip">Download</a>
+      <a class="rvt-button rvt-button--secondary" href="https://github.com/indiana-university/rivet-shell">View on Github</a>
+    </div>
+    <hr><h2>Basic shell configuration</h2>
+<p>The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The <em>stage</em> area will fill up the remaining vertical space and push the footer to the bottom of the browser window.</p>
+<p>Inside the stage are we include a <em>page header</em> component that is used for page/view-specific content. The page header includes:</p>
+<ul>
+<li>A title block</li>
+<li>Breadcrumb navigation</li>
+<li>A dedicated toolbar-like space for actions and links</li>
+</ul>
+<pre><code class="language-html">&lt;header class=&quot;rvt-header&quot;&gt;
+  &lt;!-- Rivet header markup --&gt;
+&lt;/header&gt;
+
+&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__stage&quot;&gt;
+    &lt;div class=&quot;rivet-page-header&quot;&gt;
+      &lt;!-- Page header content --&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Rest of your app's main content --&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class=&quot;rvt-footer&quot;&gt;
+  &lt;!-- Rivet footer markup --&gt;
+&lt;/footer&gt;
+</code></pre>
+<h3>Shell markup changes</h3>
+<p>New in 1.0.0—The root <code>.rvt-shell</code> class should be applied to the <code>&lt;main&gt;</code> element of your document as of version <code>1.0.0</code>. See the previous code example for an example of how to structure your markup to include the Rivet header and footer directly before and after the <code>&lt;main class=&quot;rvt-shell&quot;&gt;</code> element.</p>
+<p><a href="./rivet-shell-page-header-only/index.html" class="rvt-button rvt-m-tb-lg">View the basic configuration demo</a></p>
+<h2>Shell sidebar</h2>
+<p>To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.</p>
+<p><img src="./img/rvt-shell-sidebar.jpg" alt="The Rivet shell layout with sidebar highlighted"></p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__sidebar&quot;&gt;
+    &lt;nav role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;rvt-list-nav&quot;&gt;
+        &lt;li&gt;Nav item one&lt;/li&gt;
+        &lt;!-- Rest of navigation --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell__stage rvt-p-all-md&quot;&gt;
+    &lt;!-- Main content &quot;Stage&quot; --&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<p><a href="./rivet-shell-sidebar/index.html" class="rvt-button rvt-m-tb-lg">View the sidebar demo</a></p>
+<h2>Sidebar and page header layout</h2>
+<p>For more complex layouts and navigation structure the shell sidebar and page header can be used together. Building on the <em>Shell sidebar</em> example above, you can place the <code>rvt-page-header</code> component included with the shell inside the stage area to make a more complex layout.</p>
+<p><img src="./img/rvt-shell-header.jpg" alt="The Rivet shell layout with page header highlighted"></p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__sidebar&quot;&gt;
+    &lt;nav role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;rvt-list-nav&quot;&gt;
+        &lt;li&gt;Nav item one&lt;/li&gt;
+        &lt;!-- Rest of navigation --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell__stage rvt-p-all-md&quot;&gt;
+    &lt;div class=&quot;rvt-page-header&quot;&gt;
+      &lt;!-- Page header content --&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;rvt-p-all&quot;&gt;
+      &lt;!-- Main content &quot;Stage&quot; --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<p>In the example above we've used a Rivet spacing utility class to add a bit of padding to the stage content area underneath the page header. We intentionally do not build in padding to the stage so that users have more control over how the content is laid our in the stage area. For example when using the page header.</p>
+<p><a href="./rivet-shell-sidebar-and-header/index.html" class="rvt-button rvt-m-tb-lg">View the sidebar and header demo</a></p>
+<h2>Shell modifiers</h2>
+<p>There are a couple of different modifiers you can use to modify the shell layout and appearance.</p>
+<h3>Reverse modifier</h3>
+<p>If you are using the shell sidebar, the <code>rvt-shell--reverse</code> modifier will move the sidebar to the right side of the shell layout.</p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell rvt-shell--reverse&quot;&gt;
+  &lt;!-- Shell content --&gt;
+&lt;/main&gt;
+</code></pre>
+<h3>Sidebar and stage modifiers</h3>
+<p>You can use the <code>rvt-shell__sidebar--light</code> modifier to changes the background color of the sidebar to white. This works really will with the <code>rvt-shell__stage--subtle</code> modifier which will apply a subtle gray background to the stage, effectively swapping the default colors.</p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__sidebar rvt-shell__sidebar--light&quot;&gt;
+    &lt;nav role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;rvt-list-nav&quot;&gt;
+        &lt;li&gt;Nav item one&lt;/li&gt;
+        &lt;!-- Rest of navigation --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell__stage rvt-shell__stage--subtle&quot;&gt;
+    &lt;!-- Main content &quot;Stage&quot; --&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<h3>Compact sidebar list nav modifier</h3>
+<p>If you have a large amount of navigation in the shell sidebar, you can used the list nav compact modifier to reduce the amount of space between the sidebar nav items.</p>
+<pre><code class="language-html">&lt;main class=&quot;rvt-shell&quot;&gt;
+  &lt;div class=&quot;rvt-shell__sidebar&quot;&gt;
+    &lt;nav role=&quot;navigation&quot;&gt;
+      &lt;ul class=&quot;rvt-list-nav rvt-list-nav--compact&quot;&gt;
+        &lt;li&gt;Nav item one&lt;/li&gt;
+        &lt;!-- Rest of navigation --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;rvt-shell__stage&quot;&gt;
+    &lt;!-- Main content &quot;Stage&quot; --&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+<h2>Shell demo switcher</h2>
+<p>Select a configuration below and click the <em>Full-page demo</em> link to view a demo of possible shell layouts.</p>
+<!--
+  Copyright (C) 2018 The Trustees of Indiana University
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+<div class="rvt-m-top-xxl rvt-display-flex rvt-vertical-center">
+  <div class="rvt-m-right-md">
+    <label for="main-switcher">Select a shell configuration</label>
+    <select data-shell-switcher="base" id="main-switcher">
+      <option value="rivet-shell-empty">Choose...</option>
+      <option value="rivet-shell-page-header-only">Shell w/ page header</option>
+      <option value="rivet-shell-sidebar">Shell sidebar</option>
+      <option value="rivet-shell-sidebar-and-header">Shell w/ sidebar and header</option>
+      <option value="rivet-shell-sidebar-header-reversed-bg">Shell w/ reversed sidebar and stage backgrounds</option>
+    </select>
+  </div>
+  <a class="rvt-button rvt-button--plain rvt-m-top-md" id="base-link" href="#">Full-page demo</a>
+</div>
+<div class="rvt-preview-wrapper rvt-m-top-xxl rvt-m-bottom-xxl">
+  <iframe src="#" id="base"></iframe>
+</div>
+</div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+<script>
+/**
+ * Element.closest() polyfill
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
+ */
+if (!Element.prototype.closest) {
+  if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  }
+
+  Element.prototype.closest = function (s) {
+    var el = this;
+    var ancestor = this;
+    if (!document.documentElement.contains(el)) return null;
+    do {
+      if (ancestor.matches(s)) return ancestor;
+      ancestor = ancestor.parentElement;
+    } while (ancestor !== null);
+    return null;
+  };
+}
+
+/**
+ * This is a kind of janky base URL set up, but before deploying, set
+ * this to the github pages URL. Using relative paths won't work because
+ * they default to http, not https and causes the browser to throw
+ * security errors.
+ */
+
+// var baseURL = 'https://indiana-university.github.io/rivet-shell/';
+var baseURL = 'http://localhost:3000/';
+
+function handleChange(event) {
+  // Get the element that changed
+  var switcher =
+    event.target.closest('[data-shell-switcher]');
+
+  // If it wasnt the switcher, bail.
+  if (!switcher) return;
+
+  var switcherId =
+    switcher.getAttribute('data-shell-switcher');
+
+  // Find the corresponding iframe
+  var previewIframe =
+    document.getElementById(switcherId);
+
+  var demoLink =
+    document.getElementById(switcherId + '-link');
+
+  // Update the iframe URL.
+
+  previewIframe.setAttribute('src', baseURL + switcher.value + '/index.html');
+  demoLink.setAttribute('href', baseURL + switcher.value + '/index.html');
+}
+
+// Listen for the change on the document
+document.addEventListener('change', handleChange, false);
+</script><script>
+    var initialSwitcher = document.getElementById('base');
+    initialSwitcher.setAttribute('src', baseURL + 'rivet-shell-sidebar-and-header/index.html')
+  </script>
+</body>
+</html>
