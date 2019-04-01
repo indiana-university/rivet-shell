@@ -138,4 +138,6 @@ exports.release = series(
   headerCSS
 );
 
+exports.buildDocs = series(eleventy, compileSass);
+
 exports.default = parallel(eleventyWatch, watchFiles);
