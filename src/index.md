@@ -138,8 +138,3 @@ If you have a large amount of navigation in the shell sidebar, you can used the 
   </div>
 </main>
 ```
-
-## Shell demo switcher
-Select a configuration below and click the _Full-page demo_ link to view a demo of possible shell layouts.
-
-{% include rivet-shell-switcher.njk %}
