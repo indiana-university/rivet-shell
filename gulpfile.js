@@ -2,6 +2,7 @@ const { src, dest, parallel, series, watch } = require("gulp");
 const gutil = require("gulp-util");
 const cp = require("child_process");
 const sass = require("gulp-sass");
+const del = require("del");
 const browserSync = require("browser-sync").create();
 const header = require("gulp-header");
 const rename = require("gulp-rename");
@@ -88,12 +89,17 @@ function watchFiles(callback) {
 
   callback();
 }
+
+function cleanCSS() {
+  return del(["dist/css/**/*"]);
+}
+
 function copyCSS() {
   return src("./docs/css/**/*.css").pipe(dest("./dist/css/"));
 }
 
-function minifyCSS(callback) {
-  src("dist/css/" + pkg.name + ".css")
+function minifyCSS() {
+  return src("dist/css/" + pkg.name + ".css")
     .pipe(cssnano())
     .pipe(
       rename({
@@ -101,11 +107,10 @@ function minifyCSS(callback) {
       })
     )
     .pipe(dest("dist/css/"));
-  callback();
 }
 
-function prefixCSS() {
-  return src("dist/css/" + pkg.name + ".css")
+function prefixCSS(callback) {
+  src("dist/css/" + pkg.name + ".css")
     .pipe(
       postcss([
         autoprefixer({
@@ -114,6 +119,7 @@ function prefixCSS() {
       ])
     )
     .pipe(dest("dist/css/"));
+  callback();
 }
 
 function headerCSS(done) {
@@ -131,6 +137,7 @@ function headerCSS(done) {
 // Compiles, prefixes, minifies, and versions CSS
 exports.release = series(
   eleventy,
+  cleanCSS,
   compileSass,
   copyCSS,
   prefixCSS,

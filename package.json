@@ -36,5 +36,8 @@
     "rollup": "^0.60.4",
     "rollup-plugin-babel": "^3.0.4",
     "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "del": "^4.1.0"
   }
 }
