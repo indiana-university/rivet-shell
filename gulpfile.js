@@ -64,6 +64,11 @@ function compileSass() {
     .pipe(dest("docs/css/"));
 }
 
+function copySass() {
+  return src('./src/sass/**/*.scss')
+    .pipe(dest('./dist/sass/'));
+}
+
 function sassWatch() {
   watch("src/sass/**/*.scss", { ignoreInitial: false }, compileSass);
 }
