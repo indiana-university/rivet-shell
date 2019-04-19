@@ -11,13 +11,19 @@ const cssnano = require("gulp-cssnano");
 const autoprefixer = require("autoprefixer");
 const pkg = require("./package.json");
 
-const banner = `/*!
+const pkgAndVersion = `${pkg.name} - @version ${pkg.version}`;
+
+const CSSBanner = `/*!
  *
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
 
- * ${pkg.name} - @version ${pkg.version}
+ * ${pkgAndVersion}
  */
+
+`;
+
+const sassBanner = `// ${pkgAndVersion}
 
 `;
 
@@ -120,13 +126,21 @@ function prefixCSS(callback) {
 
 function headerCSS(done) {
   src("dist/css/" + pkg.name + ".css")
-    .pipe(header(banner, { pkg: pkg }))
+    .pipe(header(CSSBanner, { pkg: pkg }))
     .pipe(dest("dist/css/"));
 
   src("dist/css/" + pkg.name + ".min.css")
-    .pipe(header(banner, { pkg: pkg }))
+    .pipe(header(CSSBanner, { pkg: pkg }))
     .pipe(dest("dist/css/"));
 
+  done();
+}
+
+function headerSass(done) {
+  src('./dist/sass/**/*.scss')
+    .pipe(header(sassBanner, { pkg: pkg }))
+    .pipe(dest('./dist/sass/'));
+  
   done();
 }
 
@@ -138,7 +152,9 @@ exports.release = series(
   copyCSS,
   prefixCSS,
   minifyCSS,
-  headerCSS
+  copySass,
+  headerCSS,
+  headerSass
 );
 
 exports.buildDocs = series(eleventy, compileSass);
