@@ -21,6 +21,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.26.3",
+    "del": "^4.1.0",
     "gh-pages": "^2.0.1",
     "gulp": "^4.0.0",
     "gulp-cssnano": "^2.1.3",
