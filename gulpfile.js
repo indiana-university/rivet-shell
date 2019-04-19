@@ -11,14 +11,6 @@ const cssnano = require("gulp-cssnano");
 const autoprefixer = require("autoprefixer");
 const pkg = require("./package.json");
 
-/**
- * node-sass has an "includePaths" option that we can use to pass
- * an array of file paths where we want it to look for sass files
- * to import. Makes it much easier to include the sass files from
- * the Rivet npm package.
- */
-const sassPaths = ["./node_modules/rivet-uits/sass/"];
-
 const banner = `/*!
  *
  * Copyright (C) 2018 The Trustees of Indiana University
@@ -66,8 +58,7 @@ function compileSass() {
   return src("src/sass/**/*.scss")
     .pipe(
       sass({
-        outputStyle: "expanded",
-        includePaths: sassPaths
+        outputStyle: "expanded"
       }).on("error", sass.logError)
     )
     .pipe(dest("docs/css/"));
