@@ -1,0 +1,64 @@
+// rivet-shell - @version 1.0.0
+
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+.rvt-page-header {
+  background-color: $color-background;
+  /**
+   * Do this so visually change the source order. This way screen readers will
+   * announce the title before the nav.
+   */
+  &__title-block {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: -1px;
+    line-height: 1;
+    margin-bottom: $xs;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    line-height: 1.1;
+    font-size: $ts-26;
+  }
+
+  &__actions {
+    margin-top: $sm;
+  }
+
+  &--border {
+    border-bottom: 1px solid $color-black--150;
+  }
+
+  &--padded {
+    padding: $md;
+  }
+}
+
+
+@media screen and (min-width: map-get($breakpoints, md)) {
+  .rvt-page-header {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    &__actions {
+      margin-left: auto;
+      margin-top: 0;
+    }
+
+    &__title {
+      line-height: 1.1;
+    }
+  }
+}

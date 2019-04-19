@@ -2,6 +2,9 @@
 layout: layouts/base.njk
 title: Rivet shell
 ---
+## Shell markup changes
+New in 1.0.0—The root `.rvt-shell` class should be applied to the `<main>` element of your document as of version `1.0.0`. See the previous code example for an example of how to structure your markup to include the Rivet header and footer directly before and after the `<main class="rvt-shell">` element.
+
 ## Basic shell configuration
 The default Rivet layout shell comes ready to use with any of the Rivet header variations and the Rivet footer. The _stage_ area will fill up the remaining vertical space and push the footer to the bottom of the browser window.
 
@@ -10,6 +13,8 @@ Inside the stage are we include a _page header_ component that is used for page/
 - A title block
 - Breadcrumb navigation
 - A dedicated toolbar-like space for actions and links
+
+<a href="./rivet-shell-page-header-only/index.html" class="rvt-button rvt-m-tb-lg">View the basic configuration demo</a>
 
 ```html
 <header class="rvt-header">
@@ -31,13 +36,32 @@ Inside the stage are we include a _page header_ component that is used for page/
 </footer>
 ```
 
-### Shell markup changes
-New in 1.0.0—The root `.rvt-shell` class should be applied to the `<main>` element of your document as of version `1.0.0`. See the previous code example for an example of how to structure your markup to include the Rivet header and footer directly before and after the `<main class="rvt-shell">` element.
-
-<a href="./rivet-shell-page-header-only/index.html" class="rvt-button rvt-m-tb-lg">View the basic configuration demo</a>
-
 ## Shell sidebar
 To offer even more flexibility, the Rivet shell also comes with a sidebar component that can be used to help layout out navigation and content.
+
+### Shell layout on smaller screens
+In earlier versions of the shell, we hid the shell sidebar on smaller screens with the idea that developers could duplicate any navigation from the sidebar in the rivet drawer on smaller screens, similar to [how the main Rivet header works](https://rivet.iu.edu/components/navigation/header/#implementation-notes).
+
+As of version 1.0.0 we have removed this functionality and instead the shell sidebar will default to stacking on top of the `rvt-shell__stage` element. Due to the unknown nature of the amount of content that could be placed in the shell sidebar we felt it was better to let the developer have control over how the sidebar content should be handled on smaller screens. For instance if you want to restore the old functionality you could add the following custom CSS:
+
+```css
+.rvt-shell__sidebar {
+  display: none;
+}
+
+/**
+ * Referencing Rivet's Sass breakpoint variables:
+ * https://rivet.iu.edu/getting-started/sass/#breakpoints
+ */
+@media screen and (min-width: $breakpoint-md) {
+  .rvt-shell__sidebar {
+    display: block;
+  }
+}
+```
+
+### Let us know how you are handling sidebar navigation
+If you've used the shell and have a responsive solution for showing and hiding the shell sidebar content, please let us know by creating an [issue on the Rivet shell repository](https://github.com/indiana-university/rivet-shell/issues/new).
 
 ![The Rivet shell layout with sidebar highlighted](./img/rvt-shell-sidebar.jpg)
 
@@ -100,6 +124,7 @@ If you are using the shell sidebar, the `rvt-shell--reverse` modifier will move 
   <!-- Shell content -->
 </main>
 ```
+<a class="rvt-button rvt-m-tb-lg" href="./rivet-shell-right-sidebar-header/">View the reversed layout</a>
 
 ### Sidebar and stage modifiers
 You can use the `rvt-shell__sidebar--light` modifier to changes the background color of the sidebar to white. This works really will with the `rvt-shell__stage--subtle` modifier which will apply a subtle gray background to the stage, effectively swapping the default colors.
@@ -119,6 +144,8 @@ You can use the `rvt-shell__sidebar--light` modifier to changes the background c
   </div>
 </main>
 ```
+
+<a class="rvt-button rvt-m-tb-lg" href="./rivet-shell-sidebar-header-reversed-bg/">View the stage and sidebar modifiers</a>
 
 ### Compact sidebar list nav modifier
 If you have a large amount of navigation in the shell sidebar, you can used the list nav compact modifier to reduce the amount of space between the sidebar nav items.

@@ -11,21 +11,19 @@ const cssnano = require("gulp-cssnano");
 const autoprefixer = require("autoprefixer");
 const pkg = require("./package.json");
 
-/**
- * node-sass has an "includePaths" option that we can use to pass
- * an array of file paths where we want it to look for sass files
- * to import. Makes it much easier to include the sass files from
- * the Rivet npm package.
- */
-const sassPaths = ["./node_modules/rivet-uits/sass/"];
+const pkgAndVersion = `${pkg.name} - @version ${pkg.version}`;
 
-const banner = `/*!
+const CSSBanner = `/*!
  *
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
 
- * ${pkg.name} - @version ${pkg.version}
+ * ${pkgAndVersion}
  */
+
+`;
+
+const sassBanner = `// ${pkgAndVersion}
 
 `;
 
@@ -66,11 +64,15 @@ function compileSass() {
   return src("src/sass/**/*.scss")
     .pipe(
       sass({
-        outputStyle: "expanded",
-        includePaths: sassPaths
+        outputStyle: "expanded"
       }).on("error", sass.logError)
     )
     .pipe(dest("docs/css/"));
+}
+
+function copySass() {
+  return src('./src/sass/**/*.scss')
+    .pipe(dest('./dist/sass/'));
 }
 
 function sassWatch() {
@@ -124,13 +126,21 @@ function prefixCSS(callback) {
 
 function headerCSS(done) {
   src("dist/css/" + pkg.name + ".css")
-    .pipe(header(banner, { pkg: pkg }))
+    .pipe(header(CSSBanner, { pkg: pkg }))
     .pipe(dest("dist/css/"));
 
   src("dist/css/" + pkg.name + ".min.css")
-    .pipe(header(banner, { pkg: pkg }))
+    .pipe(header(CSSBanner, { pkg: pkg }))
     .pipe(dest("dist/css/"));
 
+  done();
+}
+
+function headerSass(done) {
+  src('./dist/sass/**/*.scss')
+    .pipe(header(sassBanner, { pkg: pkg }))
+    .pipe(dest('./dist/sass/'));
+  
   done();
 }
 
@@ -142,7 +152,9 @@ exports.release = series(
   copyCSS,
   prefixCSS,
   minifyCSS,
-  headerCSS
+  copySass,
+  headerCSS,
+  headerSass
 );
 
 exports.buildDocs = series(eleventy, compileSass);

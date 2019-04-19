@@ -89,11 +89,12 @@ pre {
 }
 
 pre,
-code {
+code,
+.hljs {
   background-color: #f7f7f7;
 }
 
 code {
   font-size: 1rem;
-  font-family: 'Monaco', 'Menolo', 'Andale mono', monospace;
+  font-family: "SFMono-Regular", Consolas, Menlo, Courier, monospace;
 }
