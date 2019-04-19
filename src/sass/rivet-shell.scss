@@ -1,16 +1,32 @@
 // Copyright (C) 2018 The Trustees of Indiana University
 // SPDX-License-Identifier: BSD-3-Clause
 
-@import "core/variables";
+@import "../../node_modules/rivet-uits/sass/core/variables";
 @import "components/rvt-empty-state";
 @import "components/rvt-list-nav";
 @import "components/rvt-page-header";
 
 .rvt-shell {
   &__sidebar {
-    display: none;
     background-color: $color-background-subtle;
     border-bottom: 1px solid $color-black--150;
+  }
+  
+  &__sidebar--light {
+    background-color: $color-background;
+  }
+  
+  &__stage--subtle {
+    background-color: $color-background-subtle;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--reverse &__sidebar {
+    border-right: none;
+    border-left: 1px solid $color-black--150;
   }
 }
 
@@ -43,7 +59,6 @@
     display: flex;
 
     &__sidebar {
-      display: block;
       flex-grow: 0;
       flex-shrink: 0;
       flex-basis: 17.5rem; // 280px
@@ -53,26 +68,9 @@
       overflow-y: auto;
     }
 
-    &__sidebar--light {
-      background-color: $color-background;
-    }
-
     &__stage {
       flex-grow: 1;
       overflow-y: auto;
-    }
-
-    &__stage--subtle {
-      background-color: $color-background-subtle;
-    }
-
-    &--reverse {
-      flex-direction: row-reverse;
-    }
-
-    &--reverse &__sidebar {
-      border-right: none;
-      border-left: 1px solid $color-black--150;
     }
   }
 }
