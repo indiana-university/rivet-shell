@@ -2,6 +2,7 @@ const { src, dest, parallel, series, watch } = require("gulp");
 const gutil = require("gulp-util");
 const cp = require("child_process");
 const sass = require("gulp-sass");
+const stylelint = require("gulp-stylelint");
 const del = require("del");
 const browserSync = require("browser-sync").create();
 const header = require("gulp-header");
@@ -70,13 +71,23 @@ function compileSass() {
     .pipe(dest("docs/css/"));
 }
 
+function lintSass() {
+  return src("src/sass/**/*.scss")
+  .pipe(stylelint({
+    failAfterError: false,
+    reporters: [
+      {formatter: 'string', console: true}
+    ]
+  }));
+}
+
 function copySass() {
   return src('./src/sass/**/*.scss')
     .pipe(dest('./dist/sass/'));
 }
 
 function sassWatch() {
-  watch("src/sass/**/*.scss", { ignoreInitial: false }, compileSass);
+  watch("src/sass/**/*.scss", { ignoreInitial: false }, series(compileSass, lintSass));
 }
 
 // Development server
@@ -86,7 +97,7 @@ function watchFiles(callback) {
       baseDir: "./docs"
     }
   });
-  watch("src/sass/**/*.scss", compileSass);
+  watch("src/sass/**/*.scss", series(compileSass, lintSass));
   watch(["src/**/*.md", "src/**/*.njk"], eleventy);
 
   callback();
@@ -149,6 +160,7 @@ exports.release = series(
   eleventy,
   cleanCSS,
   compileSass,
+  lintSass,
   copyCSS,
   prefixCSS,
   minifyCSS,
