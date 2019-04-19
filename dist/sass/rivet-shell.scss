@@ -1,0 +1,78 @@
+// rivet-shell - @version 1.0.0
+
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+@import "../../node_modules/rivet-uits/sass/core/variables";
+@import "components/rvt-empty-state";
+@import "components/rvt-list-nav";
+@import "components/rvt-page-header";
+
+.rvt-shell {
+  &__sidebar {
+    background-color: $color-background-subtle;
+    border-bottom: 1px solid $color-black--150;
+  }
+  
+  &__sidebar--light {
+    background-color: $color-background;
+  }
+  
+  &__stage--subtle {
+    background-color: $color-background-subtle;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--reverse &__sidebar {
+    border-right: none;
+    border-left: 1px solid $color-black--150;
+  }
+}
+
+@media screen and (min-width: map-get($breakpoints, md)) {
+  body,
+  html {
+    height: 100%;
+  }
+  
+  body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex-grow: 1;
+    /**
+     * This makes Firefox behave the same way as Chrome with a sticky footer.
+     */
+    min-height: 0;
+  }
+
+  .rvt-header,
+  .rvt-footer {
+    flex-shrink: 0;
+  }
+
+  .rvt-shell {
+    display: flex;
+
+    &__sidebar {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 17.5rem; // 280px
+      width: 17.5rem; // 280px
+      border-right: 1px solid $color-black--150;
+      border-bottom: none;
+      overflow-y: auto;
+    }
+
+    &__stage {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+  }
+}
