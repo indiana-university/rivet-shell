@@ -177,87 +177,29 @@ SPDX-License-Identifier: BSD-3-Clause
 </main>
 
 <footer class="rvt-footer" role="contentinfo">
-  <div class="rvt-footer__copyright-lockup">
-    <div class="rvt-footer__trident">
-      <svg role="img" aria-labelledby="footer-trident" xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25">
-        <title id="footer-trident">IU Trident Logo</title>
-        <polygon points="13.33 3.32 13.33 5.21 14.76 5.21 14.76 15.64 11.9 15.64 11.9 1.9 13.33 1.9 13.33 0 6.67 0 6.67 1.9 8.09 1.9 8.09 15.64 5.24 15.64 5.24 5.21 6.67 5.21 6.67 3.32 0 3.32 0 5.21 1.43 5.21 1.43 17.47 3.7 19.91 8.09 19.91 8.09 22.76 6.67 22.76 6.67 25.13 13.33 25.13 13.33 22.76 11.9 22.76 11.9 19.91 16.1 19.91 18.56 17.47 18.56 5.21 20 5.21 20 3.32 13.33 3.32"
-          fill="#900" />
-      </svg>
-    </div>
-    <p>
-      <a href="https://www.iu.edu/copyright/index.html">Copyright</a> &copy; 2018 The Trustees of
-      <a href="https://www.iu.edu/">Indiana University</a>
-    </p>
+  <div class="rvt-footer__trident">
+    <svg role="img" alt="" xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 20 25">
+      <polygon
+        points="13.33 3.32 13.33 5.21 14.76 5.21 14.76 15.64 11.9 15.64 11.9 1.9 13.33 1.9 13.33 0 6.67 0 6.67 1.9 8.09 1.9 8.09 15.64 5.24 15.64 5.24 5.21 6.67 5.21 6.67 3.32 0 3.32 0 5.21 1.43 5.21 1.43 17.47 3.7 19.91 8.09 19.91 8.09 22.76 6.67 22.76 6.67 25.13 13.33 25.13 13.33 22.76 11.9 22.76 11.9 19.91 16.1 19.91 18.56 17.47 18.56 5.21 20 5.21 20 3.32 13.33 3.32"
+        fill="#900" />
+    </svg>
   </div>
   <ul class="rvt-footer__aux-links">
     <li class="rvt-footer__aux-item">
-      <a href="#">Privacy Policy</a>
+      <a href="https://accessibility.iu.edu/assistance/">Accessibility</a>
     </li>
     <li class="rvt-footer__aux-item">
-      <a href="https://accessibility.iu.edu/">Accessibility help</a>
+      <!-- You can learn more about privacy policies and generate one
+                 for your site here:
+                 https://protect.iu.edu/online-safety/tools/privacy-notice/index.html -->
+      <a href="#0">Privacy Notice</a>
+    </li>
+    <li class="rvt-footer__aux-item">
+      <a href="https://www.iu.edu/copyright/index.html">Copyright</a> &copy; 2019 The Trustees of <a
+        href="https://www.iu.edu/">Indiana University</a>
     </li>
   </ul>
 </footer>
 <script src="https://assets.uits.iu.edu/javascript/rivet/1.1.0/rivet.min.js"></script>
-
-<script>
-/**
- * Element.closest() polyfill
- * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
- */
-if (!Element.prototype.closest) {
-  if (!Element.prototype.matches) {
-    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-  }
-
-  Element.prototype.closest = function (s) {
-    var el = this;
-    var ancestor = this;
-    if (!document.documentElement.contains(el)) return null;
-    do {
-      if (ancestor.matches(s)) return ancestor;
-      ancestor = ancestor.parentElement;
-    } while (ancestor !== null);
-    return null;
-  };
-}
-
-/**
- * This is a kind of janky base URL set up, but before deploying, set
- * this to the github pages URL. Using relative paths won't work because
- * they default to http, not https and causes the browser to throw
- * security errors.
- */
-
-// var baseURL = 'https://indiana-university.github.io/rivet-shell/';
-var baseURL = 'http://localhost:3000/';
-
-function handleChange(event) {
-  // Get the element that changed
-  var switcher =
-    event.target.closest('[data-shell-switcher]');
-
-  // If it wasnt the switcher, bail.
-  if (!switcher) return;
-
-  var switcherId =
-    switcher.getAttribute('data-shell-switcher');
-
-  // Find the corresponding iframe
-  var previewIframe =
-    document.getElementById(switcherId);
-
-  var demoLink =
-    document.getElementById(switcherId + '-link');
-
-  // Update the iframe URL.
-
-  previewIframe.setAttribute('src', baseURL + switcher.value + '/index.html');
-  demoLink.setAttribute('href', baseURL + switcher.value + '/index.html');
-}
-
-// Listen for the change on the document
-document.addEventListener('change', handleChange, false);
-</script></body>
+</body>
 </html>
