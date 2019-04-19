@@ -11,11 +11,9 @@ layout: layouts/base-empty.njk
 %}
 
 {% include "rivet-header.njk" %}
-<main>
-  <div class="rvt-shell" id="main-content">
-    <div class="rvt-shell__stage rvt-p-all-md">
-      {{ emptyState(emptyOptions.title, emptyOptions.description) }}
-    </div>
+<main class="rvt-shell" id="main-content">
+  <div class="rvt-shell__stage rvt-p-all-md">
+    {{ emptyState(emptyOptions.title, emptyOptions.description) }}
   </div>
 </main>
 {% include "rivet-footer.njk" %}

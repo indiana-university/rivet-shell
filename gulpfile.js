@@ -1,27 +1,29 @@
-const gulp = require('gulp');
-const gutil = require('gulp-util');
-const cp = require('child_process');
-const sass = require('gulp-sass');
-const rollup = require('rollup');
-const babel = require('rollup-plugin-babel');
-const browserSync = require('browser-sync').create();
-const header = require('gulp-header');
-const runSequence = require('run-sequence');
-const uglify = require('gulp-uglify');
-const pump = require('pump');
-const rename = require('gulp-rename');
-const postcss = require('gulp-postcss');
-const cssnano = require('gulp-cssnano');
-const autoprefixer = require('autoprefixer')
-const package = require('./package.json');
+const { src, dest, parallel, series, watch } = require("gulp");
+const gutil = require("gulp-util");
+const cp = require("child_process");
+const sass = require("gulp-sass");
+const del = require("del");
+const browserSync = require("browser-sync").create();
+const header = require("gulp-header");
+const rename = require("gulp-rename");
+const postcss = require("gulp-postcss");
+const cssnano = require("gulp-cssnano");
+const autoprefixer = require("autoprefixer");
+const pkg = require("./package.json");
 
-const banner = `/*!
+const pkgAndVersion = `${pkg.name} - @version ${pkg.version}`;
+
+const CSSBanner = `/*!
  *
  * Copyright (C) 2018 The Trustees of Indiana University
  * SPDX-License-Identifier: BSD-3-Clause
 
- * ${package.name} - @version ${package.version}
+ * ${pkgAndVersion}
  */
+
+`;
+
+const sassBanner = `// ${pkgAndVersion}
 
 `;
 
@@ -36,98 +38,125 @@ const banner = `/*!
  * More about Nunjucks here:
  * https://mozilla.github.io/nunjucks/
  */
-gulp.task('eleventy', function (cb) {
-  cp.exec('npx eleventy', function (err, stdout, stderr) {
+
+function eleventy(callback) {
+  cp.exec("npx eleventy", function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
-    cb(err);
-  })
-})
+    callback(err);
+  });
+}
 
-gulp.task('eleventy:watch', function () {
-  const eleventy = cp.spawn('npx', ['eleventy', '--watch']);
+function eleventyWatch() {
+  const eleventy = cp.spawn("npx", ["eleventy", "--watch"]);
 
-  const eleventyLogger = function (buffer) {
+  const eleventyLogger = function(buffer) {
     buffer.toString()
       .split(/\n/)
-      .forEach((message) => gutil.log('Eleventy: ' + message));
+      .forEach((message) => gutil.log("Eleventy: " + message));
   };
 
-  eleventy.stdout.on('data', eleventyLogger);
-  eleventy.stderr.on('data', eleventyLogger);
-})
+  eleventy.stdout.on("data", eleventyLogger);
+  eleventy.stderr.on("data", eleventyLogger);
+}
 
-gulp.task('sass', function () {
-  return gulp
-    .src('src/sass/**/*.scss')
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(gulp.dest('docs/css/'));
-});
+function compileSass() {
+  return src("src/sass/**/*.scss")
+    .pipe(
+      sass({
+        outputStyle: "expanded"
+      }).on("error", sass.logError)
+    )
+    .pipe(dest("docs/css/"));
+}
 
-gulp.task('sass:watch', function() {
-  gulp.watch('src/sass/**/*.scss', gulp.task('sass'));
-});
+function copySass() {
+  return src('./src/sass/**/*.scss')
+    .pipe(dest('./dist/sass/'));
+}
 
+function sassWatch() {
+  watch("src/sass/**/*.scss", { ignoreInitial: false }, compileSass);
+}
 
 // Development server
-gulp.task('serve', function () {
-  browserSync.init(
-    ['docs/css/**/*.css', 'docs/js/**/*.js', 'docs/**/*.html'],
-    {
-      server: {
-        baseDir: './docs'
-      }
+function watchFiles(callback) {
+  browserSync.init(["docs/css/**/*.css", "docs/js/**/*.js", "docs/**/*.html"], {
+    server: {
+      baseDir: "./docs"
     }
-  );
-  gulp.watch('src/sass/**/*.scss', gulp.task('sass'));
-  gulp.watch(['src/**/*.md', 'src/**/*.njk'], gulp.task('eleventy'));
-});
+  });
+  watch("src/sass/**/*.scss", compileSass);
+  watch(["src/**/*.md", "src/**/*.njk"], eleventy);
 
+  callback();
+}
 
-gulp.task('css:copy', function() {
-  return gulp.src('./docs/css/**/*.css')
-    .pipe(gulp.dest('./dist/css/'));
-});
+function cleanCSS() {
+  return del(["dist/css/**/*"]);
+}
 
-gulp.task('css:minify', function () {
-  return gulp.src('dist/css/' + package.name + '.css')
+function copyCSS() {
+  return src("./docs/css/**/*.css").pipe(dest("./dist/css/"));
+}
+
+function minifyCSS() {
+  return src("dist/css/" + pkg.name + ".css")
     .pipe(cssnano())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('dist/css/'));
-});
+    .pipe(
+      rename({
+        suffix: ".min"
+      })
+    )
+    .pipe(dest("dist/css/"));
+}
 
-gulp.task('css:prefix', function () {
-  return gulp.src('dist/css/' + package.name + '.css')
-    .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
-    .pipe(gulp.dest('dist/css/'));
-});
+function prefixCSS(callback) {
+  src("dist/css/" + pkg.name + ".css")
+    .pipe(
+      postcss([
+        autoprefixer({
+          browsers: ["last 2 versions"]
+        })
+      ])
+    )
+    .pipe(dest("dist/css/"));
+  callback();
+}
 
+function headerCSS(done) {
+  src("dist/css/" + pkg.name + ".css")
+    .pipe(header(CSSBanner, { pkg: pkg }))
+    .pipe(dest("dist/css/"));
 
-gulp.task('css:header', function (done) {
-  gulp.src('dist/css/' + package.name + '.css')
-    .pipe(header(banner, { package: package }))
-    .pipe(gulp.dest('dist/css/'));
-
-  gulp.src('dist/css/' + package.name + '.min.css')
-    .pipe(header(banner, { package: package }))
-    .pipe(gulp.dest('dist/css/'));
+  src("dist/css/" + pkg.name + ".min.css")
+    .pipe(header(CSSBanner, { pkg: pkg }))
+    .pipe(dest("dist/css/"));
 
   done();
-});
+}
+
+function headerSass(done) {
+  src('./dist/sass/**/*.scss')
+    .pipe(header(sassBanner, { pkg: pkg }))
+    .pipe(dest('./dist/sass/'));
+  
+  done();
+}
 
 // Compiles, prefixes, minifies, and versions CSS
-gulp.task(
-  'release',
-  gulp.series(
-    'eleventy',
-    'sass',
-    'css:copy',
-    'css:prefix',
-    'css:minify',
-    'css:header'
-  )
+exports.release = series(
+  eleventy,
+  cleanCSS,
+  compileSass,
+  copyCSS,
+  prefixCSS,
+  minifyCSS,
+  copySass,
+  headerCSS,
+  headerSass
 );
 
-gulp.task('default', gulp.parallel('eleventy:watch', 'serve'));
+exports.buildDocs = series(eleventy, compileSass);
+
+exports.default = parallel(eleventyWatch, watchFiles);

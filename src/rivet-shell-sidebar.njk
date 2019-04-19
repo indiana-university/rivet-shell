@@ -11,15 +11,17 @@ layout: layouts/base-empty.njk
 %}
 
 {% include "rivet-header.njk" %}
-<main>
-  <div class="rvt-shell" id="main-content">
-    <div class="rvt-shell__sidebar rvt-p-all-md">
-      {% include "rivet-list-nav.njk" %}
+<main class="rvt-shell" id="main-content">
+  <div class="rvt-shell__sidebar rvt-p-all-md">
+    {% include "rivet-list-nav.njk" %}
+  </div>
+  <div class="rvt-shell__stage" style="display:flex; flex-direction: column;">
+    {# {{ emptyState(emptyOptions.title, emptyOptions.description) }} #}
+    <div class="rvt-p-lr-xxl">
+      {% include "ipsum.njk" %}
     </div>
-    <div class="rvt-shell__stage rvt-p-all-md">
-      {{ emptyState(emptyOptions.title, emptyOptions.description) }}
-    </div>
+    {% include "rivet-footer.njk" %}
   </div>
 </main>
-{% include "rivet-footer.njk" %}
+
 <script src="https://assets.uits.iu.edu/javascript/rivet/1.1.0/rivet.min.js"></script>

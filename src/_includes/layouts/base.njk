@@ -10,9 +10,11 @@ SPDX-License-Identifier: BSD-3-Clause
   <title>{{ title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://assets.uits.iu.edu/css/rivet/1.1.0/rivet.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/github.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/a11y-light.min.css">
   <link rel="stylesheet" href="./css/rivet-shell.css">
-  {% include "demo-styles.njk" %}
+  <style>
+    {% include "demo-styles.css" %}
+  </style>
 </head>
 <body>
   <div class="rvt-container rvt-container--center rvt-container--typeset rvt-m-top-xxl rvt-m-bottom-xxl rvt-typeset">
@@ -28,11 +30,6 @@ SPDX-License-Identifier: BSD-3-Clause
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
-  </script>
-  {%- include "rivet-switcher-script.njk" -%}
-  <script>
-    var initialSwitcher = document.getElementById('base');
-    initialSwitcher.setAttribute('src', baseURL + 'rivet-shell-sidebar-and-header/index.html')
   </script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+// rivet-shell - @version 1.0.0
+
+// Copyright (C) 2018 The Trustees of Indiana University
+// SPDX-License-Identifier: BSD-3-Clause
+
+.rvt-empty {
+  height: 25rem; // 400px
+  min-height: 25rem; // 400px
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-background-subtle;
+  border-radius: $xxs;
+  border: $xxs/2 dashed $color-black--100;
+
+  &__container {
+    max-width: 25rem; // 400px
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $ts-29;
+  }
+
+  &__description {
+    color: $color-black--700;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: $lg;
+    align-items: center;
+
+    > *:not(:last-child) {
+      margin-right: $sm;
+    }
+  }
+
+  &--light {
+    background-color: $color-background;
+  }
+}

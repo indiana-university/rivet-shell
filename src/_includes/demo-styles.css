@@ -1,0 +1,100 @@
+/**
+ * Copyright (C) 2018 The Trustees of Indiana University
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+
+.rvt-preview-wrapper {
+  border-top-right-radius: .25rem;
+  border-top-left-radius: .25rem;
+  box-shadow: 0 2px 14px 3px rgba(0, 0, 0, .08);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.rvt-preview-wrapper iframe {
+  width: 100%;
+  min-height: 600px;
+  border: none;
+  margin: 0;
+  display: block;
+}
+
+@media screen and (min-width: 1100px) {
+  .rvt-preview-wrapper {
+    width: 150%;
+    max-width: 150%;
+    margin-right: -25%;
+    margin-bottom: 4rem;
+    margin-left: -25%;
+  }
+}
+
+.rvt-container--typeset {
+  max-width: 768px;
+}
+
+.rvt-container--typeset img {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 1080px) {  
+  .rvt-container--typeset img {
+    width: 150%;
+    margin-right: -25%;
+    margin-left: -25%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 2px 14px 3px rgba(0, 0, 0, .08);
+  }
+}
+
+.rvt-typeset h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+.rvt-typeset h2 {
+  font-size: 1.75rem;
+}
+
+.rvt-typeset h3 {
+  font-size: 1.5rem;
+}
+
+.rvt-typeset h4,
+.rvt-typeset h5,
+.rvt-typeset h6 {
+  font-size: 1.25rem;
+}
+
+.rvt-typeset h1,
+.rvt-typeset h2,
+.rvt-typeset h3,
+.rvt-typeset h4,
+.rvt-typeset h5,
+.rvt-typeset h6 {
+  font-weight: 700;
+  margin-top: 2.5rem;
+}
+
+pre {
+  margin-top: 1.5rem;
+  border-radius: .25rem;
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+
+pre,
+code,
+.hljs {
+  background-color: #f7f7f7;
+}
+
+code {
+  font-size: 1rem;
+  font-family: "SFMono-Regular", Consolas, Menlo, Courier, monospace;
+}
