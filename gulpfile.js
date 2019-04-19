@@ -74,6 +74,7 @@ function compileSass() {
 function lintSass() {
   return src("src/sass/**/*.scss")
   .pipe(stylelint({
+    failAfterError: false,
     reporters: [
       {formatter: 'string', console: true}
     ]
