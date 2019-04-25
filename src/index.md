@@ -127,7 +127,7 @@ If you are using the shell sidebar, the `rvt-shell--sidebar-right` modifier will
 <a class="rvt-button rvt-m-tb-lg" href="./rivet-shell-right-sidebar-header/">View the reversed layout</a>
 
 ### Sidebar and stage modifiers
-You can use the `rvt-shell__sidebar--light` modifier to changes the background color of the sidebar to white. This works really will with the `rvt-shell__stage--subtle` modifier which will apply a subtle gray background to the stage, effectively swapping the default colors.
+You can use the `rvt-shell__sidebar--light` modifier to changes the background color of the sidebar to white. This works really will with the `rvt-shell__stage--gray` modifier which will apply a subtle gray background to the stage, effectively swapping the default colors.
 
 ```html
 <main class="rvt-shell">
@@ -139,7 +139,7 @@ You can use the `rvt-shell__sidebar--light` modifier to changes the background c
       </ul>
     </nav>
   </div>
-  <div class="rvt-shell__stage rvt-shell__stage--subtle">
+  <div class="rvt-shell__stage rvt-shell__stage--gray">
     <!-- Main content "Stage" -->
   </div>
 </main>
