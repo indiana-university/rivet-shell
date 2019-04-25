@@ -204,17 +204,18 @@ li:first-child .rvt-list-nav__group-heading {
   background-color: #ffffff;
 }
 
-.rvt-shell__stage--subtle {
+.rvt-shell__stage--gray, .rvt-shell__stage--subtle {
   background-color: #f7f7f7;
 }
 
-.rvt-shell--reverse {
+.rvt-shell--sidebar-right, .rvt-shell--reverse {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
 
+.rvt-shell--sidebar-right .rvt-shell__sidebar,
 .rvt-shell--reverse .rvt-shell__sidebar {
   border-right: none;
   border-left: 1px solid #eaeaea;
