@@ -117,10 +117,10 @@ In the example above we've used a Rivet spacing utility class to add a bit of pa
 There are a couple of different modifiers you can use to modify the shell layout and appearance.
 
 ### Reverse modifier
-If you are using the shell sidebar, the `rvt-shell--reverse` modifier will move the sidebar to the right side of the shell layout. 
+If you are using the shell sidebar, the `rvt-shell--sidebar-right` modifier will move the sidebar to the right side of the shell layout. 
 
 ```html
-<main class="rvt-shell rvt-shell--reverse">
+<main class="rvt-shell rvt-shell--sidebar-right">
   <!-- Shell content -->
 </main>
 ```
