@@ -18,14 +18,23 @@
     background-color: $color-background;
   }
   
+  // As of 1.0.0, .rvt-shell__stage--subtle is deprecated in favor of
+  // .rvt-shell__stage--gray and will be removed in the next major version
+
+  &__stage--gray,
   &__stage--subtle {
     background-color: $color-background-subtle;
   }
 
+  // As of 1.0.0, .rvt-shell--reverse is deprecated in favor of
+  // .rvt-shell--sidebar-right and will be removed in the next major version
+
+  &--sidebar-right,
   &--reverse {
     flex-direction: row-reverse;
   }
 
+  &--sidebar-right &__sidebar,
   &--reverse &__sidebar {
     border-right: none;
     border-left: 1px solid $color-black--150;
