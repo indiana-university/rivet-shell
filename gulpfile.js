@@ -71,10 +71,20 @@ function compileSass() {
     .pipe(dest("docs/css/"));
 }
 
-function lintSass() {
+function lintSassWatch() {
   return src("src/sass/**/*.scss")
   .pipe(stylelint({
     failAfterError: false,
+    reporters: [
+      {formatter: 'string', console: true}
+    ]
+  }));
+}
+
+function lintSassBuild() {
+  return src("src/sass/**/*.scss")
+  .pipe(stylelint({
+    failAfterError: true,
     reporters: [
       {formatter: 'string', console: true}
     ]
@@ -86,10 +96,6 @@ function copySass() {
     .pipe(dest('./dist/sass/'));
 }
 
-function sassWatch() {
-  watch("src/sass/**/*.scss", { ignoreInitial: false }, series(compileSass, lintSass));
-}
-
 // Development server
 function watchFiles(callback) {
   browserSync.init(["docs/css/**/*.css", "docs/js/**/*.js", "docs/**/*.html"], {
@@ -97,7 +103,7 @@ function watchFiles(callback) {
       baseDir: "./docs"
     }
   });
-  watch("src/sass/**/*.scss", series(compileSass, lintSass));
+  watch("src/sass/**/*.scss", { ignoreInitial: false }, series(lintSassWatch, compileSass));
   watch(["src/**/*.md", "src/**/*.njk"], eleventy);
 
   callback();
@@ -159,8 +165,8 @@ function headerSass(done) {
 exports.release = series(
   eleventy,
   cleanCSS,
+  lintSassBuild,
   compileSass,
-  lintSass,
   copyCSS,
   prefixCSS,
   minifyCSS,
@@ -169,6 +175,6 @@ exports.release = series(
   headerSass
 );
 
-exports.buildDocs = series(eleventy, compileSass);
+exports.buildDocs = series(eleventy, lintSassBuild, compileSass);
 
 exports.default = parallel(eleventyWatch, watchFiles);
