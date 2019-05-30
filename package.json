@@ -34,7 +34,7 @@
     "gulp-util": "^3.0.8",
     "pump": "^3.0.0",
     "rivet-collapsible": "0.1.0-alpha",
-    "rivet-uits": "^1.5.0",
+    "rivet-uits": "^1.6.0",
     "rollup": "^0.60.4",
     "rollup-plugin-babel": "^3.0.4",
     "run-sequence": "^2.2.1",
