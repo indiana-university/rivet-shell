@@ -13,11 +13,11 @@
     background-color: $color-background-subtle;
     border-bottom: 1px solid $color-black--150;
   }
-  
+
   &__sidebar--light {
     background-color: $color-background;
   }
-  
+
   // As of 1.0.0, .rvt-shell__stage--subtle is deprecated in favor of
   // .rvt-shell__stage--gray and will be removed in the next major version
 
@@ -46,7 +46,7 @@
   html {
     height: 100%;
   }
-  
+
   body {
     height: 100%;
     display: flex;
@@ -55,6 +55,7 @@
 
   main {
     flex-grow: 1;
+
     /**
      * This makes Firefox behave the same way as Chrome with a sticky footer.
      */
