@@ -5,11 +5,12 @@
 
 .rvt-page-header {
   background-color: $color-background;
+
   /**
    * Do this so visually change the source order. This way screen readers will
    * announce the title before the nav.
    */
-  
+
   &__title-block {
     display: flex;
     flex-direction: column-reverse;
@@ -45,7 +46,6 @@
     padding: $md;
   }
 }
-
 
 @media screen and (min-width: map-get($breakpoints, md)) {
   .rvt-page-header {
