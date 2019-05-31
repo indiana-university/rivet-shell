@@ -72,10 +72,10 @@
 }
 
 .rvt-list-nav li a {
-  font-size: .875rem;
+  font-size: 0.875rem;
   text-decoration: none;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   padding-left: 1rem;
   display: block;
 }
@@ -102,7 +102,7 @@
   text-transform: uppercase;
   letter-spacing: .04rem;
   line-height: 1;
-  font-size: .875rem;
+  font-size: 0.875rem;
   margin-top: 1.5rem;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .rvt-list-nav__group-heading svg {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   color: #bbb;
 }
 
@@ -121,8 +121,8 @@ li:first-child .rvt-list-nav__group-heading {
 }
 
 .rvt-list-nav--compact li a {
-  padding-top: .25rem;
-  padding-bottom: .25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .rvt-page-header {
