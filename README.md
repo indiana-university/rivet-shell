@@ -1,3 +1,5 @@
+> **The Rivet shell is deprecated**. Please use [Rivet 2 layouts](https://rivet.iu.edu/layouts/) instead.
+
 # Rivet Shell
 
 > The `.rvt-shell` class should be applied to the `<main>` element of your document as of version `1.0.0`.
