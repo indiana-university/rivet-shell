@@ -15,7 +15,7 @@
   "author": "Indiana University",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "@11ty/eleventy": "^0.8.2",
+    "@11ty/eleventy": "^1.0.2",
     "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-plugin-external-helpers": "^6.22.0",
